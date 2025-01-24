@@ -17,4 +17,18 @@ return {
 		"nvim-lua/plenary.nvim",
 		lazy = true,
 	},
+
+	{
+		"stevearc/dressing.nvim",
+		opts = function()
+			require("dressing").setup({})
+		end,
+	},
+
+	{
+		"simrat39/inlay-hints.nvim",
+		opts = function()
+			require("inlay-hints").setup({})
+		end,
+	},
 }

@@ -19,7 +19,7 @@ return {
 		keyword = { range = "full" },
 	},
 
-	signature = { enabled = true, window = { treesitter_highlighting = false } },
+	signature = { enabled = true, window = { treesitter_highlighting = true } },
 
 	sources = {
 		default = { "lazydev", "lsp", "path", "snippets", "buffer" },

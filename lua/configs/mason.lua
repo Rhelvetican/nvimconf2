@@ -1,5 +1,3 @@
-local map = vim.keymap.set
-
 require("mason").setup({
 	ensure_installed = {
 		"ast-grep",

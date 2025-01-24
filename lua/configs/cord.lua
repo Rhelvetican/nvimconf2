@@ -44,8 +44,11 @@ require("cord").setup({
 		end,
 
 		workspace = function(opts)
+			local diagnostics
 			if opts.diagnostics then
-				local diagnostics = opts.diagnostics(opts)
+				diagnostics = opts.diagnostics(opts)
+			else
+				diagnostics = nil
 			end
 
 			if diagnostics ~= nil then
