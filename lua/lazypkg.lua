@@ -21,8 +21,8 @@ vim.g.maplocalleader = "."
 
 require("lazy").setup({
 	ui = {
-		width = 0.9,
-		height = 0.8,
+		width = 0.95,
+		height = 0.85,
 	},
 
 	spec = {

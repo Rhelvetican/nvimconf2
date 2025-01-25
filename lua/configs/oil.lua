@@ -14,7 +14,7 @@ require("oil").setup({
 	view_options = {
 		show_hidden = true,
 		is_hidden_file = function(name, _)
-			return name ~= ".gitignore" and name:sub(1, #".") ~= "."
+			return name == ".gitignore" and name:sub(1, #".") ~= "."
 		end,
 	},
 })

@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"saghen/blink.compat",
 		"rafamadriz/friendly-snippets",
+		"folke/lazydev.nvim",
 	},
 
 	version = "*",
