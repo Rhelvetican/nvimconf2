@@ -5,6 +5,8 @@ local function map_nvo(keybind, command)
 end
 
 map_nvo("<C-s>", "<cmd>w<CR>")
+map_nvo("<C-c>", "<cmd>%y+<CR>")
+map_nvo("d<leader>", "<cmd>%d+<CR>")
 
 -- Plugins
 map_nvo("<C-o>", "<cmd> Oil <CR>")

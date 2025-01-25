@@ -1,34 +1,9 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-capabilities.textDocument = {
-	completion = {
-		completionItem = {
-			snippetSupport = true,
-			preselectSupport = true,
-			insertReplaceSupport = true,
-			labelDetailsSupport = true,
-			deprecatedSupport = true,
-			commitCharactersSupport = true,
-		},
-
-		dynamicRegistration = true,
-	},
-
-	documentHighlight = {
-		dynamicRegistration = true,
-	},
-}
-
 local M = {}
 local servers = {}
 
-servers.clangd = {
-	capabilities = capabilities,
-}
+servers.clangd = {}
 
-servers.taplo = {
-	capabilities = capabilities,
-}
+servers.taplo = {}
 
 servers.lua_ls = {}
 
@@ -50,7 +25,6 @@ servers.basedpyright = {
 			},
 		},
 	},
-	capabilities = capabilities,
 }
 
 servers.ruff = {
