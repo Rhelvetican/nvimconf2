@@ -11,6 +11,7 @@ return {
 		"folke/snacks.nvim",
 		event = "VimEnter",
 		opts = require("configs.snacks"),
+		keys = require("keys.snacks"),
 	},
 
 	{
