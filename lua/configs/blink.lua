@@ -13,7 +13,7 @@ return {
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 50,
-			treesitter_highlighting = false,
+			treesitter_highlighting = true,
 		},
 
 		keyword = { range = "full" },
