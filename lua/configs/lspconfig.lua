@@ -30,9 +30,7 @@ servers.taplo = {
 	capabilities = capabilities,
 }
 
-servers.lua_ls = {
-	capabilities = capabilities,
-}
+servers.lua_ls = {}
 
 servers.basedpyright = {
 	settings = {
