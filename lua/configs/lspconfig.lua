@@ -2,9 +2,9 @@ local M = {}
 local servers = {}
 
 servers.clangd = {}
-
 servers.taplo = {}
-
+servers.jsonls = {}
+servers.ast_grep = {}
 servers.lua_ls = {}
 
 servers.basedpyright = {
