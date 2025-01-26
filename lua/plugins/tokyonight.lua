@@ -3,5 +3,14 @@ return {
 	lazy = false,
 	priority = 9999,
 
-	opts = {},
+	config = function()
+		require("tokyonight").setup({
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = true },
+				functions = { italic = true },
+				variables = { italic = true },
+			},
+		})
+	end,
 }
