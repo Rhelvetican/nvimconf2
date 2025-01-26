@@ -1,3 +1,5 @@
+---@module "blink.cmp"
+---@type blink.cmp.Config
 return {
 	keymap = {
 		preset = "super-tab",
@@ -17,6 +19,15 @@ return {
 		},
 
 		keyword = { range = "full" },
+
+		list = { selection = { preselect = true, auto_insert = false } },
+
+		menu = { draw = { columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } } } },
+
+		trigger = {
+			show_on_trigger_character = true,
+			show_on_insert_on_trigger_character = true,
+		},
 	},
 
 	signature = { enabled = true, window = { treesitter_highlighting = true } },

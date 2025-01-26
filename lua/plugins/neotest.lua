@@ -8,6 +8,8 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 
+		---@module "neotest"
+		---@type neotest.Config
 		opts = {
 			adapter = {
 				["rustaceanvim.neotest"] = {},

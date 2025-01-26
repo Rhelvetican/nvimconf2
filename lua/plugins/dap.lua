@@ -35,13 +35,6 @@ return {
 			dap.listeners.before.event_exited.dapui_config = function()
 				dapui.close()
 			end
-
-			map({ "n", "v" }, "<C-d>bgo", function()
-				dapui.open()
-			end)
-			map({ "n", "v" }, "<C-d>bgc", function()
-				dapui.close()
-			end)
 		end,
 	},
 }
