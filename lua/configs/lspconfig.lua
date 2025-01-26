@@ -33,6 +33,12 @@ servers.ruff = {
 	end,
 }
 
+servers.sqls = {
+	on_attach = function(client, bufnr)
+		require("sqls").on_attach(client, bufnr)
+	end,
+}
+
 M.servers = servers
 
 return M
