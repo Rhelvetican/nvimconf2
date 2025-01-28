@@ -1,4 +1,5 @@
 local M = {}
+---@type table<string, lspconfig.Config?>
 local servers = {}
 
 servers.clangd = {}
@@ -6,6 +7,7 @@ servers.taplo = {}
 servers.jsonls = {}
 servers.ast_grep = {}
 servers.lua_ls = {}
+servers.marksman = {}
 
 servers.basedpyright = {
 	settings = {

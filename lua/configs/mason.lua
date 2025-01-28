@@ -15,4 +15,6 @@ require("mason").setup({
 		"stylua",
 		"taplo",
 	},
+
+	log_level = 3,
 })

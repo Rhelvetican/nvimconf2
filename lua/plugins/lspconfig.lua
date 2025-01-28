@@ -7,7 +7,6 @@ return {
 		},
 
 		event = { "BufReadPre", "BufNewFile" },
-
 		opts = require("configs.lspconfig"),
 
 		config = function(_, opts)
