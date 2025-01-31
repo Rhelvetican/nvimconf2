@@ -17,4 +17,10 @@ require("mason").setup({
 	},
 
 	log_level = 3,
+	ui = {
+		keymaps = {
+			apply_language_filter = "<leader>mf",
+			cancel_installation = "<leader>mc",
+		},
+	},
 })
