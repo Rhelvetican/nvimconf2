@@ -1,3 +1,5 @@
+local lsp = require("lspconfig")
+
 local M = {}
 ---@type table<string, lspconfig.Config?>
 local servers = {}
@@ -39,6 +41,15 @@ servers.sqls = {
 	on_attach = function(client, bufnr)
 		require("sqls").on_attach(client, bufnr)
 	end,
+}
+
+servers.denols = {
+	root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
+servers.ts_ls = {
+	root_dir = lsp.util.root_pattern("package.json"),
+	single_file_support = true,
 }
 
 M.servers = servers
