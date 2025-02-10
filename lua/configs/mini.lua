@@ -1,3 +1,4 @@
+require("mini.ai").setup({})
 require("mini.align").setup({})
 require("mini.basics").setup({})
 require("mini.bracketed").setup({})

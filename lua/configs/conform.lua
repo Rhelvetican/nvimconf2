@@ -1,10 +1,12 @@
 return {
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "ruff_fix", "ruff_format", "ruff_organize_import" },
+		python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 		rust = { "rustfmt", lsp_format = "fallback" },
 		toml = { "taplo fmt", lsp_format = "fallback" },
 		zig = { "zig fmt .", lsp_format = "fallback" },
+		typescript = { "deno_fmt", lsp_format = "fallback" },
+		javascript = { "deno_fmt", lsp_format = "fallback" },
 	},
 
 	formatters = {
@@ -21,7 +23,7 @@ return {
 	},
 
 	format_on_save = {
-		timeout_ms = 500,
+		timeout_ms = 2500,
 		lsp_format = "fallback",
 	},
 }

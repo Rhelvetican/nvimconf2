@@ -1,3 +1,5 @@
+---@module "snacks"
+---@type snacks.Config
 return {
 	bigfile = { enabled = true },
 	dashboard = { enabled = true },

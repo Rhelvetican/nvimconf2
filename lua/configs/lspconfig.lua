@@ -1,7 +1,4 @@
-local lsp = require("lspconfig")
-
 local M = {}
----@type table<string, lspconfig.Config?>
 local servers = {}
 
 servers.clangd = {}
@@ -10,8 +7,9 @@ servers.jsonls = {}
 servers.ast_grep = {}
 servers.lua_ls = {}
 servers.marksman = {}
+servers.nushell = {}
+
 servers.denols = {}
-servers.ts_ls = {}
 
 servers.basedpyright = {
 	settings = {
