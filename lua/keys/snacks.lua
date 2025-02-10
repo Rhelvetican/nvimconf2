@@ -1,27 +1,28 @@
+---@module "snacks"
 return {
 	{
-		"<leader>,",
+		"<C-p>b",
 		function()
 			Snacks.picker.buffers()
 		end,
 		desc = "Buffers",
 	},
 	{
-		"<leader>/",
+		"<C-p>rg",
 		function()
 			Snacks.picker.grep()
 		end,
 		desc = "Grep",
 	},
 	{
-		"<leader>:",
+		"<C-p>ch",
 		function()
 			Snacks.picker.command_history()
 		end,
 		desc = "Command History",
 	},
 	{
-		"<leader><space>",
+		"<C-p>ff",
 		function()
 			Snacks.picker.files()
 		end,
@@ -29,35 +30,21 @@ return {
 	},
 	-- find
 	{
-		"<leader>fb",
-		function()
-			Snacks.picker.buffers()
-		end,
-		desc = "Buffers",
-	},
-	{
-		"<leader>fc",
+		"<C-p>fc",
 		function()
 			Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 		end,
 		desc = "Find Config File",
 	},
 	{
-		"<leader>ff",
-		function()
-			Snacks.picker.files()
-		end,
-		desc = "Find Files",
-	},
-	{
-		"<leader>fg",
+		"<C-p>fg",
 		function()
 			Snacks.picker.git_files()
 		end,
 		desc = "Find Git Files",
 	},
 	{
-		"<leader>fr",
+		"<C-p>fr",
 		function()
 			Snacks.picker.recent()
 		end,
@@ -65,43 +52,50 @@ return {
 	},
 	-- git
 	{
-		"<leader>gc",
+		"<C-p>gl",
 		function()
 			Snacks.picker.git_log()
 		end,
 		desc = "Git Log",
 	},
 	{
-		"<leader>gs",
+		"<C-p>gs",
 		function()
 			Snacks.picker.git_status()
 		end,
 		desc = "Git Status",
 	},
+	{
+		"<C-p>gd",
+		function()
+			Snacks.picker.git_diff()
+		end,
+		desc = "Git Diff",
+	},
 	-- Grep
 	{
-		"<leader>sb",
+		"<C-p>gl",
 		function()
 			Snacks.picker.lines()
 		end,
 		desc = "Buffer Lines",
 	},
 	{
-		"<leader>sB",
+		"<C-p>gb",
 		function()
 			Snacks.picker.grep_buffers()
 		end,
 		desc = "Grep Open Buffers",
 	},
 	{
-		"<leader>sg",
+		"<C-p>gg",
 		function()
 			Snacks.picker.grep()
 		end,
 		desc = "Grep",
 	},
 	{
-		"<leader>sw",
+		"<C-p>gw",
 		function()
 			Snacks.picker.grep_word()
 		end,
@@ -110,112 +104,112 @@ return {
 	},
 	-- search
 	{
-		'<leader>s"',
+		"<C-p>sr",
 		function()
 			Snacks.picker.registers()
 		end,
 		desc = "Registers",
 	},
 	{
-		"<leader>sa",
+		"<C-p>sa",
 		function()
 			Snacks.picker.autocmds()
 		end,
 		desc = "Autocmds",
 	},
 	{
-		"<leader>sc",
+		"<C-p>sC",
 		function()
 			Snacks.picker.command_history()
 		end,
 		desc = "Command History",
 	},
 	{
-		"<leader>sC",
+		"<C-p>sc",
 		function()
 			Snacks.picker.commands()
 		end,
 		desc = "Commands",
 	},
 	{
-		"<leader>sd",
+		"<C-p>sd",
 		function()
 			Snacks.picker.diagnostics()
 		end,
 		desc = "Diagnostics",
 	},
 	{
-		"<leader>sh",
+		"<C-p>sh",
 		function()
 			Snacks.picker.help()
 		end,
 		desc = "Help Pages",
 	},
 	{
-		"<leader>sH",
+		"<C-p>sH",
 		function()
 			Snacks.picker.highlights()
 		end,
 		desc = "Highlights",
 	},
 	{
-		"<leader>sj",
+		"<C-p>sj",
 		function()
 			Snacks.picker.jumps()
 		end,
 		desc = "Jumps",
 	},
 	{
-		"<leader>sk",
+		"<C-p>sk",
 		function()
 			Snacks.picker.keymaps()
 		end,
 		desc = "Keymaps",
 	},
 	{
-		"<leader>sl",
+		"<C-p>sl",
 		function()
 			Snacks.picker.loclist()
 		end,
 		desc = "Location List",
 	},
 	{
-		"<leader>sM",
+		"<C-p>sM",
 		function()
 			Snacks.picker.man()
 		end,
 		desc = "Man Pages",
 	},
 	{
-		"<leader>sm",
+		"<C-p>sm",
 		function()
 			Snacks.picker.marks()
 		end,
 		desc = "Marks",
 	},
 	{
-		"<leader>sR",
+		"<C-p>sR",
 		function()
 			Snacks.picker.resume()
 		end,
 		desc = "Resume",
 	},
 	{
-		"<leader>sq",
+		"<C-p>sq",
 		function()
 			Snacks.picker.qflist()
 		end,
 		desc = "Quickfix List",
 	},
 	{
-		"<leader>uC",
+		"<C-p>uC",
 		function()
 			Snacks.picker.colorschemes()
 		end,
 		desc = "Colorschemes",
 	},
 	{
-		"<leader>qp",
+		"<C-p>qp",
 		function()
 			Snacks.picker.projects()
 		end,
@@ -223,14 +217,14 @@ return {
 	},
 	-- LSP
 	{
-		"gd",
+		"<C-p>gd",
 		function()
 			Snacks.picker.lsp_definitions()
 		end,
 		desc = "Goto Definition",
 	},
 	{
-		"gr",
+		"<C-p>gr",
 		function()
 			Snacks.picker.lsp_references()
 		end,
@@ -238,21 +232,21 @@ return {
 		desc = "References",
 	},
 	{
-		"gI",
+		"<C-p>gI",
 		function()
 			Snacks.picker.lsp_implementations()
 		end,
 		desc = "Goto Implementation",
 	},
 	{
-		"gy",
+		"<C-p>gy",
 		function()
 			Snacks.picker.lsp_type_definitions()
 		end,
 		desc = "Goto T[y]pe Definition",
 	},
 	{
-		"<leader>ss",
+		"<C-p>ss",
 		function()
 			Snacks.picker.lsp_symbols()
 		end,
