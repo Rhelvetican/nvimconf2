@@ -74,6 +74,8 @@ return {
 	{
 		"nuvic/flexoki-nvim",
 		name = "flextoki",
+		lazy = false,
+		priority = 9999,
 		config = function()
 			local palette = require("flexoki.palette")
 			require("flexoki").setup({
