@@ -70,4 +70,22 @@ return {
 			require("poimandres").setup({})
 		end,
 	},
+
+	{
+		"nuvic/flexoki-nvim",
+		name = "flextoki",
+		config = function()
+			local palette = require("flexoki.palette")
+			require("flexoki").setup({
+				---@type table<string, Highlight?>
+				highlight_groups = {
+					Type = { fg = palette.cyan_two, bold = true },
+					Keyword = { fg = palette.green_two, italic = true },
+					Constant = { fg = palette.yellow_two, bold = true },
+					Function = { fg = palette.orange_two, italic = true, bold = true },
+					Identifier = { fg = palette.text, italic = true },
+				},
+			})
+		end,
+	},
 }
