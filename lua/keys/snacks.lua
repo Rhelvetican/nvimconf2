@@ -202,7 +202,7 @@ return {
 		desc = "Quickfix List",
 	},
 	{
-		"<C-p>uC",
+		"<A-p>c",
 		function()
 			Snacks.picker.colorschemes()
 		end,

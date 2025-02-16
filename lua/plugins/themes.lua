@@ -61,4 +61,13 @@ return {
 			})
 		end,
 	},
+
+	{
+		"olivercederborg/poimandres.nvim",
+		lazy = false,
+		priority = 9999,
+		config = function()
+			require("poimandres").setup({})
+		end,
+	},
 }

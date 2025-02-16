@@ -3,8 +3,9 @@
 return {
 	keymap = {
 		preset = "super-tab",
-		cmdline = { preset = "super-tab" },
 	},
+
+	cmdline = { keymap = { preset = "super-tab" } },
 
 	appearance = {
 		use_nvim_cmp_as_default = true,
@@ -22,7 +23,7 @@ return {
 
 		list = { selection = { preselect = true, auto_insert = false } },
 
-		menu = { draw = { columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } } } },
+		menu = { draw = { columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind" } } } },
 
 		trigger = {
 			show_on_trigger_character = true,

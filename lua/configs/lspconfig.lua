@@ -1,13 +1,18 @@
+---@module "lspconfig"
 local M = {}
+
 local servers = {}
 
 servers.clangd = {}
 servers.taplo = {}
-servers.jsonls = {}
 servers.ast_grep = {}
 servers.lua_ls = {}
 servers.marksman = {}
 servers.nushell = {}
+servers.jsonls = {}
+
+servers.neocmake = {}
+servers.cmake = {}
 
 servers.denols = {}
 
