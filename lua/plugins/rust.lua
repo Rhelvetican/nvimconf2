@@ -1,7 +1,6 @@
 return {
 	{
 		"saecki/crates.nvim",
-		tag = "stable",
 		event = { "BufRead Cargo.toml", "BufRead cargo.toml" },
 		dependencies = {
 			"nvimtools/none-ls.nvim",
