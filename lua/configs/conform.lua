@@ -18,10 +18,10 @@ local config = {
 		zig = { "zigfmt" },
 		typescript = { "deno_fmt", lsp_format = "fallback" },
 		javascript = { "deno_fmt", lsp_format = "fallback" },
-		c = { "clang-format", lsp_format = "fallback" },
-		cpp = { "clang-format", lsp_format = "fallback" },
-		h = { "clang-format", lsp_format = "fallback" },
-		hpp = { "clang-format", lsp_format = "fallback" },
+		c = { lsp_format = "first" },
+		cpp = { lsp_format = "first" },
+		h = { lsp_format = "first" },
+		hpp = { lsp_format = "first" },
 	},
 
 	format_on_save = {
