@@ -63,15 +63,6 @@ return {
 	},
 
 	{
-		"olivercederborg/poimandres.nvim",
-		lazy = false,
-		priority = 9999,
-		config = function()
-			require("poimandres").setup({})
-		end,
-	},
-
-	{
 		"nuvic/flexoki-nvim",
 		name = "flextoki",
 		lazy = false,
@@ -81,11 +72,19 @@ return {
 			require("flexoki").setup({
 				---@type table<string, Highlight?>
 				highlight_groups = {
-					Type = { fg = palette.cyan_two, bold = true },
-					Keyword = { fg = palette.green_two, italic = true },
+					Boolean = { fg = palette.magenta_two, bold = true, italic = true },
+					Comment = { fg = palette.subtle, italic = true },
 					Constant = { fg = palette.yellow_two, bold = true },
-					Function = { fg = palette.orange_two, italic = true, bold = true },
-					Identifier = { fg = palette.text, italic = true },
+					Error = { fg = palette.red_two, bold = true },
+					Exception = { fg = palette.blue_two, italic = true },
+					Function = { fg = palette.orange_two, bold = true, italic = true },
+					Keyword = { fg = palette.green_two, bold = true },
+					Label = { fg = palette.cyan_two, bold = true },
+					Macro = { fg = palette.purple_two, bold = true, italic = true },
+					Number = { fg = palette.purple_two, bold = true, italic = true },
+					Operator = { fg = palette.subtle, bold = true },
+					String = { fg = palette.cyan_two, bold = true },
+					Type = { fg = palette.cyan_two, bold = true, italic = true },
 				},
 			})
 		end,
