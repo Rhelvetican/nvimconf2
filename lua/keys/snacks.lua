@@ -202,13 +202,6 @@ return {
 		desc = "Quickfix List",
 	},
 	{
-		"<A-p>c",
-		function()
-			Snacks.picker.colorschemes()
-		end,
-		desc = "Colorschemes",
-	},
-	{
 		"<C-p>qp",
 		function()
 			Snacks.picker.projects()
@@ -251,5 +244,12 @@ return {
 			Snacks.picker.lsp_symbols()
 		end,
 		desc = "LSP Symbols",
+	},
+	{
+		"<leader>tt",
+		function()
+			Snacks.picker.colorschemes()
+		end,
+		desc = "Choosing colorschemes.",
 	},
 }

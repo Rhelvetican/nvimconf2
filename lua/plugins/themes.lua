@@ -37,7 +37,7 @@ return {
 				styles = {
 					comments = { "italic" },
 					keywords = { "italic" },
-					variables = { "italic" },
+					variables = { "italic", "bold" },
 					types = { "bold" },
 					functions = { "italic", "bold" },
 					miscs = { "italic" },
@@ -49,6 +49,7 @@ return {
 					cmp = true,
 					dap = true,
 					mason = true,
+					mini = {},
 					dap_ui = true,
 					aerial = true,
 					snacks = true,
@@ -58,6 +59,12 @@ return {
 					treesitter = true,
 					treesitter_context = true,
 				},
+
+				custom_highlights = function(color)
+					return {
+						Special = { fg = color.overlay2 },
+					}
+				end,
 			})
 		end,
 	},
@@ -85,6 +92,12 @@ return {
 					Operator = { fg = palette.subtle, bold = true },
 					String = { fg = palette.cyan_two, bold = true },
 					Type = { fg = palette.cyan_two, bold = true, italic = true },
+
+					["@keyword.repeat"] = { fg = palette.green_two, bold = true },
+					["@keyword.return"] = { fg = palette.green_two, bold = true },
+					["@keyword.exception"] = { fg = palette.green_two, bold = true },
+					["@keyword.conditional"] = { fg = palette.green_two, bold = true },
+					["@keyword.conditional.ternary"] = { fg = palette.green_two, bold = true },
 				},
 			})
 		end,
