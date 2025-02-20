@@ -5,14 +5,18 @@ return {
 		config = function()
 			require("onedarkpro").setup({
 				styles = {
-					types = "bold,italic",
-					methods = "bold",
-					keywords = "italic",
-					constants = "bold",
-					functions = "italic",
-					variables = "italic",
+					types = "italic,bold",
+					methods = "italic,bold",
+					numbers = "bold",
+					strings = "bold",
+					comments = "italic",
+					keywords = "italic,bold",
+					constants = "italic,bold",
+					functions = "italic,bold",
+					operators = "bold",
+					variables = "italic,bold",
 					parameters = "italic",
-					conditionals = "italic",
+					conditionals = "italic,bold",
 				},
 
 				colors = {
@@ -36,7 +40,7 @@ return {
 			require("catppuccin").setup({
 				styles = {
 					comments = { "italic" },
-					conditionals = { "italic" },
+					conditionals = { "italic", "bold" },
 					loops = { "italic", "bold" },
 					functions = { "italic", "bold" },
 					keywords = { "italic", "bold" },
