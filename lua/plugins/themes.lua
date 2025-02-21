@@ -14,6 +14,7 @@ return {
 				},
 
 				on_highlights = function(hl, colors)
+					hl.Substitute = {}
 					hl.Special = { fg = colors.fg_dark }
 					hl.Operator = { fg = colors.fg_dark }
 					hl["@punctuation.delimiter"] = { fg = colors.fg_dark }
