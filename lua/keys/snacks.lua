@@ -246,7 +246,7 @@ return {
 		desc = "LSP Symbols",
 	},
 	{
-		"<leader>tt",
+		"<leader>cs",
 		function()
 			Snacks.picker.colorschemes()
 		end,
