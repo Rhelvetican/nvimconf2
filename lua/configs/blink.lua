@@ -5,7 +5,14 @@ return {
 		preset = "super-tab",
 	},
 
-	cmdline = { keymap = { preset = "super-tab" } },
+	cmdline = {
+		keymap = { preset = "super-tab" },
+		completion = {
+			menu = {
+				auto_show = true,
+			},
+		},
+	},
 
 	appearance = {
 		use_nvim_cmp_as_default = true,

@@ -1,5 +1,9 @@
 return {
 	{
+		"rktjmp/lush.nvim",
+	},
+
+	{
 		"folke/tokyonight.nvim",
 
 		config = function()
@@ -14,14 +18,16 @@ return {
 				},
 
 				on_highlights = function(hl, colors)
-					hl.Substitute = {}
 					hl.Special = { fg = colors.fg_dark }
-					hl.Operator = { fg = colors.fg_dark }
-					hl["@punctuation.delimiter"] = { fg = colors.fg_dark }
 					hl["@punctuation.special"] = { fg = colors.fg_dark }
-					hl["@operator"] = { fg = colors.fg_dark }
 				end,
 			})
 		end,
+	},
+
+	{
+		"xero/miasma.nvim",
+		lazy = false,
+		priority = 1000,
 	},
 }

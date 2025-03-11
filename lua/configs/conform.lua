@@ -16,6 +16,7 @@ local config = {
 		rust = { "rustfmt", lsp_format = "fallback" },
 		toml = { "taplo", lsp_format = "fallback" },
 		zig = { "zigfmt" },
+		haskell = { "fourmolu", lsp_format = "fallback" },
 		typescript = { "deno_fmt", lsp_format = "fallback" },
 		javascript = { "deno_fmt", lsp_format = "fallback" },
 		c = { lsp_format = "first" },

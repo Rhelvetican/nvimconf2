@@ -33,6 +33,11 @@ require("cord").setup({
 		tooltip = "The Supreme Text Editor",
 	},
 
+	display = {
+		theme = "catppuccin",
+		flavor = "accent",
+	},
+
 	text = {
 		editing = function(opts)
 			local handle = languages[opts.filetype]
@@ -43,6 +48,8 @@ require("cord").setup({
 			end
 		end,
 
+		---@module "cord"
+		---@param opts CordOpts
 		workspace = function(opts)
 			local diagnostics
 			if opts.diagnostics then

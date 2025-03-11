@@ -4,4 +4,4 @@ vim.lsp.inlay_hint.enable(true)
 require("lazypkg")
 require("mappings")
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme miasma]])
