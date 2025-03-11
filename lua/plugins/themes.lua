@@ -30,4 +30,12 @@ return {
 		lazy = false,
 		priority = 1000,
 	},
+
+	{
+		"ramojus/mellifluous.nvim",
+
+		config = function()
+			require("mellifluous").setup({})
+		end,
+	},
 }
