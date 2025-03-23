@@ -1,28 +1,28 @@
 ---@module "snacks"
 return {
 	{
-		"<C-p>b",
+		"<leader>pb",
 		function()
 			Snacks.picker.buffers()
 		end,
 		desc = "Buffers",
 	},
 	{
-		"<C-p>rg",
+		"<leader>prg",
 		function()
 			Snacks.picker.grep()
 		end,
 		desc = "Grep",
 	},
 	{
-		"<C-p>ch",
+		"<leader>pch",
 		function()
 			Snacks.picker.command_history()
 		end,
 		desc = "Command History",
 	},
 	{
-		"<C-p>ff",
+		"<leader>pff",
 		function()
 			Snacks.picker.files()
 		end,
@@ -30,21 +30,21 @@ return {
 	},
 	-- find
 	{
-		"<C-p>fc",
+		"<leader>pfc",
 		function()
 			Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 		end,
 		desc = "Find Config File",
 	},
 	{
-		"<C-p>fg",
+		"<leader>pfg",
 		function()
 			Snacks.picker.git_files()
 		end,
 		desc = "Find Git Files",
 	},
 	{
-		"<C-p>fr",
+		"<leader>pfr",
 		function()
 			Snacks.picker.recent()
 		end,
@@ -52,21 +52,21 @@ return {
 	},
 	-- git
 	{
-		"<C-p>gl",
+		"<leader>pgl",
 		function()
 			Snacks.picker.git_log()
 		end,
 		desc = "Git Log",
 	},
 	{
-		"<C-p>gs",
+		"<leader>pgs",
 		function()
 			Snacks.picker.git_status()
 		end,
 		desc = "Git Status",
 	},
 	{
-		"<C-p>gd",
+		"<leader>pgd",
 		function()
 			Snacks.picker.git_diff()
 		end,
@@ -74,28 +74,28 @@ return {
 	},
 	-- Grep
 	{
-		"<C-p>gl",
+		"<leader>pgl",
 		function()
 			Snacks.picker.lines()
 		end,
 		desc = "Buffer Lines",
 	},
 	{
-		"<C-p>gb",
+		"<leader>pgb",
 		function()
 			Snacks.picker.grep_buffers()
 		end,
 		desc = "Grep Open Buffers",
 	},
 	{
-		"<C-p>gg",
+		"<leader>pgg",
 		function()
 			Snacks.picker.grep()
 		end,
 		desc = "Grep",
 	},
 	{
-		"<C-p>gw",
+		"<leader>pgw",
 		function()
 			Snacks.picker.grep_word()
 		end,
@@ -104,105 +104,105 @@ return {
 	},
 	-- search
 	{
-		"<C-p>sr",
+		"<leader>psr",
 		function()
 			Snacks.picker.registers()
 		end,
 		desc = "Registers",
 	},
 	{
-		"<C-p>sa",
+		"<leader>psa",
 		function()
 			Snacks.picker.autocmds()
 		end,
 		desc = "Autocmds",
 	},
 	{
-		"<C-p>sC",
+		"<leader>psC",
 		function()
 			Snacks.picker.command_history()
 		end,
 		desc = "Command History",
 	},
 	{
-		"<C-p>sc",
+		"<leader>psc",
 		function()
 			Snacks.picker.commands()
 		end,
 		desc = "Commands",
 	},
 	{
-		"<C-p>sd",
+		"<leader>psd",
 		function()
 			Snacks.picker.diagnostics()
 		end,
 		desc = "Diagnostics",
 	},
 	{
-		"<C-p>sh",
+		"<leader>psh",
 		function()
 			Snacks.picker.help()
 		end,
 		desc = "Help Pages",
 	},
 	{
-		"<C-p>sH",
+		"<leader>psH",
 		function()
 			Snacks.picker.highlights()
 		end,
 		desc = "Highlights",
 	},
 	{
-		"<C-p>sj",
+		"<leader>psj",
 		function()
 			Snacks.picker.jumps()
 		end,
 		desc = "Jumps",
 	},
 	{
-		"<C-p>sk",
+		"<leader>psk",
 		function()
 			Snacks.picker.keymaps()
 		end,
 		desc = "Keymaps",
 	},
 	{
-		"<C-p>sl",
+		"<leader>psl",
 		function()
 			Snacks.picker.loclist()
 		end,
 		desc = "Location List",
 	},
 	{
-		"<C-p>sM",
+		"<leader>psM",
 		function()
 			Snacks.picker.man()
 		end,
 		desc = "Man Pages",
 	},
 	{
-		"<C-p>sm",
+		"<leader>psm",
 		function()
 			Snacks.picker.marks()
 		end,
 		desc = "Marks",
 	},
 	{
-		"<C-p>sR",
+		"<leader>psR",
 		function()
 			Snacks.picker.resume()
 		end,
 		desc = "Resume",
 	},
 	{
-		"<C-p>sq",
+		"<leader>psq",
 		function()
 			Snacks.picker.qflist()
 		end,
 		desc = "Quickfix List",
 	},
 	{
-		"<C-p>qp",
+		"<leader>pqp",
 		function()
 			Snacks.picker.projects()
 		end,
@@ -210,14 +210,14 @@ return {
 	},
 	-- LSP
 	{
-		"<C-p>gd",
+		"<leader>pgd",
 		function()
 			Snacks.picker.lsp_definitions()
 		end,
 		desc = "Goto Definition",
 	},
 	{
-		"<C-p>gr",
+		"<leader>pgr",
 		function()
 			Snacks.picker.lsp_references()
 		end,
@@ -225,21 +225,21 @@ return {
 		desc = "References",
 	},
 	{
-		"<C-p>gI",
+		"<leader>pgI",
 		function()
 			Snacks.picker.lsp_implementations()
 		end,
 		desc = "Goto Implementation",
 	},
 	{
-		"<C-p>gy",
+		"<leader>pgy",
 		function()
 			Snacks.picker.lsp_type_definitions()
 		end,
 		desc = "Goto T[y]pe Definition",
 	},
 	{
-		"<C-p>ss",
+		"<leader>pss",
 		function()
 			Snacks.picker.lsp_symbols()
 		end,

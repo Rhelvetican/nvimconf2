@@ -3,20 +3,49 @@ local M = {}
 
 local servers = {}
 
-servers.clangd = {}
-servers.taplo = {}
-servers.ast_grep = {}
-servers.lua_ls = {}
-servers.marksman = {}
-servers.nushell = {}
-servers.jsonls = {}
+local function register(name, config)
+	servers[name] = config or {}
+end
 
-servers.neocmake = {}
-servers.cmake = {}
+register("clangd")
+register("taplo")
+register("ast_grep")
+register("lua_ls")
+register("marksman")
+register("nushell")
+register("jsonls")
 
-servers.denols = {}
+register("neocmake")
+register("cmake")
 
-servers.basedpyright = {
+register("denols", {
+	settings = {
+		deno = {
+			inlayHints = {
+				parameterNames = {
+					enabled = "all",
+				},
+				parameterTypes = {
+					enabled = true,
+				},
+				variableTypes = {
+					enabled = true,
+				},
+				propertyDeclarationTypes = {
+					enabled = true,
+				},
+				functionLikeReturnTypes = {
+					enabled = true,
+				},
+				enumMemberValues = {
+					enabled = true,
+				},
+			},
+		},
+	},
+})
+
+register("basedpyright", {
 	settings = {
 		basedpyright = {
 			disableOrganizeImports = false,
@@ -34,19 +63,19 @@ servers.basedpyright = {
 			},
 		},
 	},
-}
+})
 
-servers.ruff = {
+register("ruff", {
 	on_attach = function(client, _)
 		client.server_capabilities.hoverProvider = false
 	end,
-}
+})
 
-servers.sqls = {
+register("sqls", {
 	on_attach = function(client, bufnr)
 		require("sqls").on_attach(client, bufnr)
 	end,
-}
+})
 
 M.servers = servers
 

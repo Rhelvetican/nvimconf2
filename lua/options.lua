@@ -50,3 +50,9 @@ g.loaded_ruby_provider = 0
 vim.api.nvim_set_hl(0, "IndentLine", { link = "Comment" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+g.markdown_fenced_languages = {
+	"rs=rust",
+	"js=javascript",
+	"ts=typescript",
+}
