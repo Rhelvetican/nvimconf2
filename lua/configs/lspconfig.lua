@@ -1,3 +1,5 @@
+require("configs.lsp")
+
 ---@module "lspconfig"
 local M = {}
 

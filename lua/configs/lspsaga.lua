@@ -14,6 +14,7 @@ map_nv("<leader>cdb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 map_nv("<leader>cdc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 map_nv("<leader>cdn", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 map_nv("<leader>cdN", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+map_nv("<leader>k", "<cmd>Lspsaga hover_doc<CR>")
 
 return {
 	ui = {
