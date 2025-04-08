@@ -26,5 +26,6 @@ require("hover").setup({
 	mouse_providers = {
 		"LSP",
 	},
-	mouse_delay = 500,
+
+	mouse_delay = 250,
 })
