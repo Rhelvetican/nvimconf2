@@ -1,3 +1,3 @@
 return {
-	"nanotee/sqls.nvim",
+	{ "nanotee/sqls.nvim", ft = "sql", opts = {} },
 }
