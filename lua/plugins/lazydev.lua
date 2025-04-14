@@ -1,9 +1,11 @@
+---@module "lazydev"
 return {
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
 		priority = 9999,
 
+		---@type lazydev.Config
 		opts = {
 			library = {
 				"lazy.nvim",

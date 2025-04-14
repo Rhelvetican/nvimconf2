@@ -1,24 +1,24 @@
-require("configs.lsp")
-
 ---@module "lspconfig"
 local M = {}
 
+require("configs.lsp")
+
 local servers = {}
 
+---@param name string
+---@param config vim.lsp.Config?
 local function register(name, config)
-	servers[name] = config or {}
+	local server_config = vim.tbl_deep_extend("keep", config or {}, require("lspconfig.configs." .. name))
+	servers[name] = server_config
 end
 
 register("clangd")
 register("taplo")
-register("ast_grep")
 register("lua_ls")
 register("marksman")
 register("nushell")
 register("jsonls")
-
 register("neocmake")
-register("cmake")
 
 register("denols", {
 	settings = {

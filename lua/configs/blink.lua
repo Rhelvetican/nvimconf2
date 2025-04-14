@@ -41,7 +41,7 @@ return {
 	signature = { enabled = true, window = { treesitter_highlighting = true } },
 
 	sources = {
-		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+		default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline" },
 		providers = {
 			lazydev = {
 				name = "LazyDev",
