@@ -1,7 +1,7 @@
 ---@module "lspconfig"
 local M = {}
 
-require("configs.lsp")
+-- require("configs.lsp")
 
 local servers = {}
 
@@ -13,8 +13,8 @@ local function register(name, config)
 end
 
 register("clangd")
-register("taplo")
 register("lua_ls")
+register("taplo")
 register("marksman")
 register("nushell")
 register("jsonls")

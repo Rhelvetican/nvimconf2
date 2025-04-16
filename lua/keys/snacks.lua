@@ -1,28 +1,34 @@
 ---@module "snacks"
+
+---@class SnacksKeymap
+---@field desc string
+---@field [1] string
+---@field [2] function
+
+---@param keymap string
+---@param func function
+---@param desc string
+---@return SnacksKeymap
+local function make_snacks_mapping(keymap, func, desc)
+	return {
+		keymap,
+		func,
+		desc = desc,
+	}
+end
+
 return {
+	make_snacks_mapping("<space>b", function()
+		Snacks.picker.buffers()
+	end, "Pick buffers"),
+	make_snacks_mapping("<space>gg", function()
+		Snacks.picker.grep()
+	end, "Grep"),
+	make_snacks_mapping("<space>ch", function()
+		Snacks.picker.command_history()
+	end, "Command History"),
 	{
-		"<leader>pb",
-		function()
-			Snacks.picker.buffers()
-		end,
-		desc = "Buffers",
-	},
-	{
-		"<leader>prg",
-		function()
-			Snacks.picker.grep()
-		end,
-		desc = "Grep",
-	},
-	{
-		"<leader>pch",
-		function()
-			Snacks.picker.command_history()
-		end,
-		desc = "Command History",
-	},
-	{
-		"<leader>pff",
+		"<space>f",
 		function()
 			Snacks.picker.files()
 		end,
@@ -30,21 +36,21 @@ return {
 	},
 	-- find
 	{
-		"<leader>pfc",
+		"<space>cc",
 		function()
 			Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 		end,
 		desc = "Find Config File",
 	},
 	{
-		"<leader>pfg",
+		"<space>gf",
 		function()
 			Snacks.picker.git_files()
 		end,
 		desc = "Find Git Files",
 	},
 	{
-		"<leader>pfr",
+		"<space>fr",
 		function()
 			Snacks.picker.recent()
 		end,
@@ -52,7 +58,7 @@ return {
 	},
 	-- git
 	{
-		"<leader>pgl",
+		"<space>gl",
 		function()
 			Snacks.picker.git_log()
 		end,
