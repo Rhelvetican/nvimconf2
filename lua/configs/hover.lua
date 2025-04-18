@@ -1,19 +1,6 @@
 local map = vim.keymap.set
 local hover = require("hover")
 
-local function checked_hover()
-	local bufnr = vim.api.nvim_win_get_buf(0)
-	local pos = vim.fn.getmousepos()
-
-	local ok, lines = pcall(vim.api.nvim_buf_get_lines, bufnr, pos.line, pos.line + 1, true)
-
-	if ok then
-		if lines[1] then
-			hover.hover_mouse()
-		end
-	end
-end
-
 map("n", "K", hover.hover, { desc = "hover.nvim" })
 map("n", "gK", hover.hover_select, { desc = "hover.nvim (select)" })
 map("n", "<MouseMove>", checked_hover, { desc = "hover.nvim (mouse)" })
