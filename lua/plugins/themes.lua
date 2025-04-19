@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec[]
 return {
 	{
 		"rktjmp/lush.nvim",
@@ -26,16 +28,30 @@ return {
 	},
 
 	{
-		"xero/miasma.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-
-	{
 		"ramojus/mellifluous.nvim",
 
 		config = function()
 			require("mellifluous").setup({})
 		end,
+	},
+
+	{
+		"ficcdaf/ashen.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style_presets = {
+				bold_functions = true,
+				italic_comments = true,
+			},
+
+			hl = {
+				---@type table<string, HighlightSpec>
+				force_override = {
+					SpecialKey = { "g_6" },
+					["@punctuation.special"] = { "g_6" },
+				},
+			},
+		},
 	},
 }

@@ -3,7 +3,7 @@ local hover = require("hover")
 
 map("n", "K", hover.hover, { desc = "hover.nvim" })
 map("n", "gK", hover.hover_select, { desc = "hover.nvim (select)" })
-map("n", "<MouseMove>", checked_hover, { desc = "hover.nvim (mouse)" })
+map("n", "<MouseMove>", hover.hover_mouse, { desc = "hover.nvim (mouse)" })
 
 map("n", "<C-p>", function()
 	require("hover").hover_switch("previous", {})
