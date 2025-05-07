@@ -19,6 +19,7 @@ register("marksman")
 register("nushell")
 register("jsonls")
 register("neocmake")
+register("jdtls")
 
 register("denols", {
 	settings = {

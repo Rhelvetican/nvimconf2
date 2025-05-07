@@ -1,9 +1,7 @@
 local cfg = require("rustaceanvim.config")
 
 vim.g.rustaceanvim = function()
-	local registry = require("mason-registry")
-
-	local codelldb = registry.get_package("codelldb"):get_install_path()
+	local codelldb = vim.fn.exepath("codelldb")
 	local ext_path = codelldb .. "/extension/"
 	local codelldb_path = ext_path .. "adapter/codelldb"
 	local liblldb_path = ext_path .. "lldb/lib/liblldb.dylib"
