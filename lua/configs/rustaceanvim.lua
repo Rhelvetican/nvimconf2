@@ -1,16 +1,5 @@
-local cfg = require("rustaceanvim.config")
-
 vim.g.rustaceanvim = function()
-	local codelldb = vim.fn.exepath("codelldb")
-	local ext_path = codelldb .. "/extension/"
-	local codelldb_path = ext_path .. "adapter/codelldb"
-	local liblldb_path = ext_path .. "lldb/lib/liblldb.dylib"
-
 	return {
-		dap = {
-			adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
-		},
-
 		server = {
 			on_attach = function(_, _)
 				local map = vim.keymap.set

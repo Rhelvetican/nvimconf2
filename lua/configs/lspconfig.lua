@@ -1,7 +1,4 @@
----@module "lspconfig"
 local M = {}
-
--- require("configs.lsp")
 
 local servers = {}
 

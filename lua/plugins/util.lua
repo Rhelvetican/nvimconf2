@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	{
 		"echasnovski/mini.nvim",
@@ -20,16 +22,12 @@ return {
 	},
 
 	{
-		"stevearc/dressing.nvim",
-		opts = function()
-			require("dressing").setup({})
-		end,
-	},
-
-	{
-		"simrat39/inlay-hints.nvim",
-		opts = function()
-			require("inlay-hints").setup({})
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "LspAttach",
+		priority = 1000,
+		config = function()
+			require("tiny-inline-diagnostic").setup()
+			vim.diagnostic.config({ virtual_text = false })
 		end,
 	},
 }
