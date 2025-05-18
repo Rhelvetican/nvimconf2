@@ -1,5 +1,4 @@
 ---@module "mini"
-
 require("mini.ai").setup({})
 require("mini.align").setup({})
 require("mini.basics").setup({})
@@ -11,6 +10,7 @@ require("mini.cursorword").setup({})
 require("mini.diff").setup({})
 require("mini.doc").setup({})
 require("mini.extra").setup({})
+require("mini.files").setup({})
 require("mini.fuzzy").setup({})
 require("mini.git").setup({})
 require("mini.hipatterns").setup({})
@@ -26,3 +26,5 @@ require("mini.surround").setup({})
 require("mini.tabline").setup({})
 require("mini.test").setup({})
 require("mini.visits").setup({})
+
+require("keys.mini")

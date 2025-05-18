@@ -18,7 +18,7 @@ return {
 	make_snacks_mapping("<space>ch", function()
 		Snacks.picker.command_history()
 	end, { desc = "Command History" }),
-	make_snacks_mapping("<space>f", function()
+	make_snacks_mapping("<space>ft", function()
 		Snacks.picker.files()
 	end, { desc = "Find Files" }),
 	-- find
