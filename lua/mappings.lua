@@ -18,3 +18,7 @@ map_nvo("<leader>ff", "<cmd> Tele find_files <CR>")
 map_nvo("<leader>fo", "<cmd> Tele oldfiles <CR>")
 map_nvo("<leader>fw", "<cmd> Tele live_grep <CR>")
 map_nvo("<leader>g", "<cmd> Tele git_status <CR>")
+
+map("n", "<leader>ca", function()
+	require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
