@@ -1,7 +1,13 @@
+---@module "cord"
+---@alias CordDisplayer fun(opts: CordOpts): string
+
+---@param opts CordOpts
+---@return string
 local oldschool = function(opts)
 	return "Being oldschool in " .. opts.filename
 end
 
+---@type table<string, CordDisplayer>
 local languages = {
 	["c"] = oldschool,
 	["cpp"] = oldschool,
@@ -48,32 +54,15 @@ require("cord").setup({
 			end
 		end,
 
-		---@module "cord"
 		---@param opts CordOpts
 		workspace = function(opts)
-			local diagnostics
-			if opts.diagnostics then
-				diagnostics = opts.diagnostics(opts)
-			else
-				diagnostics = nil
-			end
-
-			if diagnostics ~= nil then
-				if diagnostics > 1 then
-					return "In " .. opts.workspace_name .. " with " .. diagnostics .. " problems."
-				else
-					return "In " .. opts.workspace_name .. " with " .. diagnostics .. " problem."
-				end
-			else
-				return "In " .. opts.workspace_name
-			end
+			local diagnostics = #vim.diagnostic.get(vim.api.nvim_get_current_buf())
+			return "Fixing " .. diagnostics .. diagnostics < 2 and " bug " or " bugs " .. "in" .. opts.filename
 		end,
 
 		docs = "Reading docs...",
 		vcs = "Managing git...",
 	},
-
-	plugins = { { "cord.plugins.diagnostics", config = { scope = "workspace" } } },
 
 	assets = {
 		["Cargo.toml"] = {
