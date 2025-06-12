@@ -5,3 +5,5 @@ require("lazypkg")
 require("mappings")
 
 vim.cmd([[colorscheme sequoia-insomnia]])
+
+local booo = true
