@@ -77,6 +77,12 @@ register("sqls", {
 	end,
 })
 
+register("glsl_analyzer", {
+	cmd = { "glsl_analyzer" },
+	filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs" },
+	root_markers = { ".git" },
+})
+
 M.servers = servers
 
 return M
