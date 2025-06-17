@@ -14,18 +14,7 @@ require("nvim-treesitter.configs").setup({
 	auto_install = true,
 
 	ignore_install = {},
-	ensure_installed = {
-		"lua",
-		"python",
-		"vim",
-		"vimdoc",
-		"rst",
-		"nu",
-		"gitignore",
-		"markdown",
-		"json",
-		"toml",
-	},
+	ensure_installed = {},
 
 	autotag = { enable = true },
 	indent = { enable = true },
