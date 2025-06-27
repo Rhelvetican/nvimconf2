@@ -62,8 +62,57 @@ return {
 		event = "LspAttach",
 		opts = {
 			picker = {
-				"snacks",
+				"buffer",
+				opts = {
+					hotkeys = true,
+				},
 			},
 		},
+	},
+
+	{
+		"rachartier/tiny-glimmer.nvim",
+		event = "VeryLazy",
+		priority = 3,
+
+		config = function()
+			require("tiny-glimmer").setup({
+				support = {
+					overwrite = {
+						search = {
+							enabled = true,
+						},
+					},
+
+					substitute = {
+						enabled = false,
+						default_animation = "fade",
+					},
+				},
+			})
+		end,
+	},
+
+	{
+		"gbprod/yanky.nvim",
+		opts = {
+			highlight = {
+				on_put = false,
+				on_yank = false,
+				timer = 150,
+			},
+		},
+	},
+
+	{
+		"gbprod/substitute.nvim",
+		config = function()
+			require("substitute").setup({
+				on_substitute = require("tiny-glimmer.support.substitute").substitute_cb,
+				highlight_substituted_text = {
+					enabled = false,
+				},
+			})
+		end,
 	},
 }

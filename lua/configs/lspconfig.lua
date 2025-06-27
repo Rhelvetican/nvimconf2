@@ -77,6 +77,14 @@ register("sqls", {
 	end,
 })
 
+register("tinymist", {
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable",
+	},
+})
+
 register("glsl_analyzer", {
 	cmd = { "glsl_analyzer" },
 	filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs" },
