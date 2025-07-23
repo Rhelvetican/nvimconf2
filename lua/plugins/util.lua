@@ -22,6 +22,17 @@ return {
 	},
 
 	{
+		"A7Lavinraj/fyler.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			auto_confirm_simple_edits = true,
+			default_explorer = true,
+
+			icon_provider = "nvim-web-devicons",
+		},
+	},
+
+	{
 		"monaqa/dial.nvim",
 
 		config = function()

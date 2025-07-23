@@ -9,7 +9,7 @@ map_nvo("<C-c>", "<cmd>%y+<CR>")
 map_nvo("d<leader>", "<cmd>%d+<CR>")
 
 -- Plugins
-map_nvo("<C-o>", "<cmd> Oil <CR>")
+map_nvo("<C-f>", "<cmd> Fyler <CR>")
 map_nvo("<C-l>", "<cmd> Lazy <CR>")
 map_nvo("<C-m>", "<cmd> Mason <CR>")
 
@@ -20,5 +20,5 @@ map_nvo("<leader>fw", "<cmd> Tele live_grep <CR>")
 map_nvo("<leader>g", "<cmd> Tele git_status <CR>")
 
 map("n", "<leader>ca", function()
-	require("tiny-code-action").code_action()
+	require("tiny-code-action").code_action({})
 end, { noremap = true, silent = true })

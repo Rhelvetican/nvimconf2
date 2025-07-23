@@ -6,12 +6,8 @@ return {
 	},
 
 	config = function()
-		local builtins = require("null-ls.builtins")
-
 		require("null-ls").setup({
-			sources = {
-				builtins.diagnostics.selene,
-			},
+			sources = {},
 		})
 	end,
 }
