@@ -29,6 +29,13 @@ return {
 			default_explorer = true,
 
 			icon_provider = "nvim-web-devicons",
+
+			views = {
+				explorer = {
+					width = 0.15,
+					kind = "split:leftmost",
+				},
+			},
 		},
 	},
 
