@@ -23,6 +23,11 @@ return {
 	},
 
 	{
+		"mcauley-penney/techbase.nvim",
+		priority = 1000,
+	},
+
+	{
 		"forest-nvim/sequoia.nvim",
 		lazy = false,
 		priority = 1000,

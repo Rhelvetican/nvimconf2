@@ -4,4 +4,4 @@ require("options")
 require("lazypkg")
 require("mappings")
 
-vim.cmd([[colorscheme sequoia-insomnia]])
+vim.cmd([[colorscheme techbase]])
