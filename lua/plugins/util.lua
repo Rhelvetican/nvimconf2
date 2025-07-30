@@ -28,12 +28,12 @@ return {
 
 		config = function()
 			require("oil").setup({
-				columns = { "icons", "size", "mtime" },
+				columns = { "icons", "size" },
 				skip_confirm_for_simple_edits = true,
 				view_options = { show_hidden = true },
 				float = {
-					max_width = 0.3,
-					max_height = 0.6,
+					max_width = 0.5,
+					max_height = 0.8,
 				},
 			})
 		end,
