@@ -1,24 +1,42 @@
 local M = {}
 
+---@class Servers
 local servers = {}
 
 ---@param name string
 ---@param config vim.lsp.Config?
-local function register(name, config)
-	local server_config = vim.tbl_deep_extend("keep", config or {}, require("lspconfig.configs." .. name))
-	servers[name] = server_config
+function servers:register(name, config)
+	local ok, val = pcall(require, "lspconfig.configs." .. name)
+
+	if ok and type(val) ~= "string" and name ~= "register" then
+		local server_config = vim.tbl_deep_extend("keep", config or {}, val)
+		self[name] = server_config
+	else
+		self[name] = config or {}
+	end
 end
 
-register("clangd")
-register("lua_ls")
-register("taplo")
-register("marksman")
-register("nushell")
-register("jsonls")
-register("neocmake")
-register("jdtls")
+servers:register("clangd")
 
-register("denols", {
+-- servers:register("lua_ls")
+servers:register("emmylua_ls", {
+	cmd = { "emmylua_ls" },
+	filetypes = { "lua" },
+	root_markers = {
+		".luarc.json",
+		".emmyrc.json",
+		".luacheckrc",
+		".git",
+	},
+	workspace_required = false,
+})
+
+servers:register("taplo")
+servers:register("marksman")
+servers:register("nushell")
+servers:register("jsonls")
+
+servers:register("denols", {
 	settings = {
 		deno = {
 			inlayHints = {
@@ -45,7 +63,7 @@ register("denols", {
 	},
 })
 
-register("basedpyright", {
+servers:register("basedpyright", {
 	settings = {
 		basedpyright = {
 			disableOrganizeImports = false,
@@ -65,19 +83,19 @@ register("basedpyright", {
 	},
 })
 
-register("ruff", {
+servers:register("ruff", {
 	on_attach = function(client, _)
 		client.server_capabilities.hoverProvider = false
 	end,
 })
 
-register("sqls", {
+servers:register("sqls", {
 	on_attach = function(client, bufnr)
 		require("sqls").on_attach(client, bufnr)
 	end,
 })
 
-register("tinymist", {
+servers:register("tinymist", {
 	settings = {
 		formatterMode = "typstyle",
 		exportPdf = "onType",
@@ -85,7 +103,7 @@ register("tinymist", {
 	},
 })
 
-register("glsl_analyzer", {
+servers:register("glsl_analyzer", {
 	cmd = { "glsl_analyzer" },
 	filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs" },
 	root_markers = { ".git" },

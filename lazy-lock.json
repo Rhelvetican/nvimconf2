@@ -29,7 +29,7 @@
   "sequoia.nvim": { "branch": "master", "commit": "f6b933911f560f01effceb1b46dc926df274844c" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "substitute.nvim": { "branch": "main", "commit": "9db749a880e3dd3b0eb57f698aa8f1e1630e1f25" },
-  "techbase.nvim": { "branch": "main", "commit": "2b954311ecf1cb92177eff9a228b6eb649a991bd" },
+  "techbase.nvim": { "branch": "main", "commit": "504632dd6c054f055661ac776ec5e0d8d5f8415a" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "tiny-code-action.nvim": { "branch": "main", "commit": "597c4a39d5601e050d740f3ef437ee695d1ff3b0" },
   "tiny-glimmer.nvim": { "branch": "main", "commit": "60a632536e0741c9cecb892f89fbe65a270dc7c7" },
