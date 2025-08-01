@@ -7,10 +7,9 @@ return {
 
 	{
 		"arturgoms/moonbow.nvim",
-		priority = 9999,
+		priority = 1000,
 
 		config = function()
-			local colors = require("moonbow.colors").colors
 			require("moonbow").setup({
 				---@type table<string,vim.api.keyset.highlight>
 				overrides = {
@@ -18,6 +17,18 @@ return {
 					["@punctuation.special"] = { link = "@punctuation.bracket" },
 					SpecialKey = { link = "@punctuation.bracket" },
 				},
+			})
+		end,
+	},
+
+	{
+		"Mofiqul/vscode.nvim",
+		priority = 1000,
+
+		config = function()
+			require("vscode").setup({
+				italic_comments = true,
+				terminal_colors = true,
 			})
 		end,
 	},

@@ -4,4 +4,4 @@ require("options")
 require("lazypkg")
 require("mappings")
 
-vim.cmd([[colorscheme techbase]])
+vim.cmd([[colorscheme vscode]])
