@@ -19,7 +19,6 @@ end
 
 servers:register("clangd")
 
--- servers:register("lua_ls")
 servers:register("emmylua_ls", {
 	cmd = { "emmylua_ls" },
 	filetypes = { "lua" },
