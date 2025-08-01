@@ -1,4 +1,3 @@
----@module "cord"
 ---@alias CordDisplayer fun(opts: CordOpts): string
 
 ---@param opts CordOpts

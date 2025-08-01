@@ -1,27 +1,21 @@
 ---@module "lazydev"
 return {
-	-- {
-	-- 	"folke/lazydev.nvim",
-	-- 	ft = "lua",
-	-- 	priority = 9999,
-	--
-	-- 	---@type lazydev.Config
-	-- 	opts = {
-	-- 		library = {
-	-- 			"lazy.nvim",
-	--
-	-- 			{ path = "${3rd}/luv/library" },
-	--
-	-- 			{ plugins = "nvim-dap-ui", types = true },
-	--
-	-- 			{
-	-- 				path = "~/AppData/Local/nvim-data/mason/packages/lua-language-server/LLS-Addons/addons/xmake/module/library/",
-	-- 				files = { "xmake.lua" },
-	-- 			},
-	--
-	-- 			{ path = "${3rd}/smods/library" },
-	-- 			{ path = "${3rd}/love2d/library" },
-	-- 		},
-	-- 	},
-	-- },
+	"folke/lazydev.nvim",
+	ft = "lua",
+	priority = 9999,
+
+	dependencies = {
+		{ "LuaCATS/luassert", name = "luassert-types", lazy = true },
+		{ "LuaCATS/busted", name = "busted-types", lazy = true },
+		{ "Bilal2453/luvit-meta", name = "luvit-types", lazy = true },
+	},
+
+	opts = function(_, opts)
+		vim.list_extend(opts.library, {
+			{ path = "luassert-types/library", words = { "assert" } },
+			{ path = "luvit-types/library", words = { "vim%.uv" } },
+			{ path = "busted-types/library", words = { "describe" } },
+			{ path = vim.env.VIMRUNTIME, words = { "vim" } },
+		})
+	end,
 }
