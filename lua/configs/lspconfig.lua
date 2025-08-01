@@ -1,18 +1,19 @@
 local M = {}
 
 ---@class Servers
-local servers = {}
+---@field servers table<string, any>
+local servers = { servers = {} }
 
 ---@param name string
----@param config vim.lsp.Config?
+---@param config vim.lsp.Config | table<string, any> | nil
 function servers:register(name, config)
 	local ok, val = pcall(require, "lspconfig.configs." .. name)
 
 	if ok and type(val) ~= "string" and name ~= "register" then
 		local server_config = vim.tbl_deep_extend("keep", config or {}, val)
-		self[name] = server_config
+		self.servers[name] = server_config
 	else
-		self[name] = config or {}
+		self.servers[name] = config or {}
 	end
 end
 
