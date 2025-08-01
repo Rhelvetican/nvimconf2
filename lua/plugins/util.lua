@@ -1,3 +1,4 @@
+local config = require("oil.config")
 ---@module "lazy"
 ---@type LazySpec
 return {
@@ -138,6 +139,10 @@ return {
 		"chomosuke/typst-preview.nvim",
 		ft = "typst",
 		version = "1.*",
-		opts = {},
+		config = function()
+			require("typst-preview").setup({
+				open_cmd = "start %s",
+			})
+		end,
 	},
 }
