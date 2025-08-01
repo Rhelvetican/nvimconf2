@@ -1,6 +1,6 @@
----@module "lazydev"
+---@type LazySpec
 return {
-	"folke/lazydev.nvim",
+	"FelipeLema/lazydev.nvim",
 	ft = "lua",
 	priority = 9999,
 
@@ -10,12 +10,11 @@ return {
 		{ "Bilal2453/luvit-meta", name = "luvit-types", lazy = true },
 	},
 
-	opts = function(_, opts)
-		vim.list_extend(opts.library, {
-			{ path = "luassert-types/library", words = { "assert" } },
-			{ path = "luvit-types/library", words = { "vim%.uv" } },
-			{ path = "busted-types/library", words = { "describe" } },
-			{ path = vim.env.VIMRUNTIME, words = { "vim" } },
-		})
-	end,
+	opts = {
+		"lazy.nvim",
+		{ path = "luassert-types/library", words = { "assert" } },
+		{ path = "luvit-types/library", words = { "vim%.uv" } },
+		{ path = "busted-types/library", words = { "describe" } },
+		{ path = vim.env.VIMRUNTIME, words = { "vim" } },
+	},
 }
