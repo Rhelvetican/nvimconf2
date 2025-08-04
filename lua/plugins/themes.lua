@@ -1,5 +1,3 @@
----@module "lazy"
----@type LazySpec[]
 return {
 	{
 		"rktjmp/lush.nvim",
@@ -36,6 +34,15 @@ return {
 	{
 		"mcauley-penney/techbase.nvim",
 		priority = 1000,
+	},
+
+	{
+		"hyperb1iss/silkcircuit-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("silkcircuit").setup({})
+		end,
 	},
 
 	{

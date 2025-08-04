@@ -45,6 +45,11 @@ return {
 						return name == ".gitignore" or name:sub(1, #".") == "."
 					end,
 				},
+
+				float = {
+					max_width = 0.5,
+					max_height = 0.8,
+				},
 			})
 		end,
 	},
@@ -153,5 +158,17 @@ return {
 				open_cmd = "start %s",
 			})
 		end,
+	},
+
+	{
+		"alex-popov-tech/store.nvim",
+		dependencies = {
+			"OXY2DEV/markview.nvim",
+		},
+		cmd = "Store",
+		keys = {
+			{ "<leader>s", "<cmd>Store<cr>", desc = "Open Plugin Store" },
+		},
+		opts = {},
 	},
 }
