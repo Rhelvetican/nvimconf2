@@ -20,7 +20,7 @@
   "mason.nvim": { "branch": "main", "commit": "9e25c98d4826998460926f8c5c2284848d80ae89" },
   "mini.icons": { "branch": "main", "commit": "b8f6fa6f5a3fd0c56936252edcd691184e5aac0c" },
   "mini.nvim": { "branch": "main", "commit": "94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152" },
-  "monalisa-nvim": { "branch": "main", "commit": "f6988e1e92ae89f95ba49bffcbea8eb22732c038" },
+  "monalisa.nvim": { "branch": "main", "commit": "8ada5f30de41333274cd0f25b0b7e8b53ff3c83c" },
   "moonbow.nvim": { "branch": "master", "commit": "baf62d035785910c5a368cbde5872190a56afb30" },
   "none-ls.nvim": { "branch": "main", "commit": "3ce66bc62eb363f19cceeb1fae2e71ea2bede56d" },
   "nvim-lspconfig": { "branch": "master", "commit": "d0dbf489a8810672fa9a61f4a86e5cf89214b772" },

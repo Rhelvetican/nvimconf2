@@ -34,7 +34,7 @@ return {
 	},
 
 	{
-		"ptdewey/monalisa-nvim",
+		"Rhelvetican/monalisa.nvim",
 		priority = 1000,
 	},
 }
