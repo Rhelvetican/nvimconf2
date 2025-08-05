@@ -34,44 +34,7 @@ return {
 	},
 
 	{
-		"hyperb1iss/silkcircuit-nvim",
-		lazy = false,
+		"ptdewey/monalisa-nvim",
 		priority = 1000,
-		config = function()
-			require("silkcircuit").setup({
-				integrations = {
-					treesitter = true,
-					lsp = true,
-					telescope = true,
-					nvimtree = true,
-					neotree = true,
-					gitsigns = true,
-					indent_blankline = true,
-					bufferline = true,
-					lualine = true,
-					dashboard = true,
-					alpha = true,
-					which_key = true,
-					cmp = true,
-					notify = true,
-					noice = true,
-					hop = true,
-					leap = true,
-					lazy = true,
-					mason = true,
-					nvim_dap = true,
-					trouble = true,
-					outline = true,
-					illuminate = true,
-					flash = true,
-					rainbow_delimiters = true,
-				},
-
-				on_highlights = function(hl, _)
-					hl.Delimiter = hl["@punctuation.special"]
-					hl.SpecialKey = hl["@punctuation.special"]
-				end,
-			})
-		end,
 	},
 }

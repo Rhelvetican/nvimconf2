@@ -4,4 +4,4 @@ require("options")
 require("lazypkg")
 require("mappings")
 
-vim.cmd([[colorscheme silkcircuit]])
+vim.cmd([[colorscheme monalisa]])
