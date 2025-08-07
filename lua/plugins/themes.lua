@@ -9,35 +9,16 @@ return {
 	},
 
 	{
-		"arturgoms/moonbow.nvim",
+		"folke/tokyonight.nvim",
+		lazy = false,
 		priority = 1000,
 
 		config = function()
-			require("moonbow").setup({
-				---@type table<string,vim.api.keyset.highlight>
-				overrides = {
-					Delimiter = { link = "MoonbowFg4" },
-					["@punctuation.special"] = { link = "@punctuation.bracket" },
-					SpecialKey = { link = "@punctuation.bracket" },
-				},
+			require("tokyonight").setup({
+				on_highlights = function(hl, _)
+					hl["@punctuation.bracket"] = hl.Special
+				end,
 			})
 		end,
-	},
-
-	{
-		"Mofiqul/vscode.nvim",
-		priority = 1000,
-
-		config = function()
-			require("vscode").setup({
-				italic_comments = true,
-				terminal_colors = true,
-			})
-		end,
-	},
-
-	{
-		"Rhelvetican/monalisa.nvim",
-		priority = 1000,
 	},
 }
