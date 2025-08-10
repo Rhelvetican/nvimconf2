@@ -16,7 +16,10 @@ return {
 		config = function()
 			require("tokyonight").setup({
 				on_highlights = function(hl, _)
-					hl["@punctuation.bracket"] = hl.Special
+					hl.Special = hl["@punctuation.bracket"]
+					hl.SpecialKey = hl.Special
+					hl["@punctuation.special"] = hl.Special
+					hl["@punctuation.special.markdown"] = hl.Special
 				end,
 			})
 		end,
