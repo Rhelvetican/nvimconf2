@@ -15,18 +15,11 @@ function Languages:register_custom_message(language, callback)
 	end
 end
 
----@return Languages
-Languages.new = function()
-	return setmetatable({}, Languages)
-end
-
-local lang = Languages.new()
-
-lang:register_custom_message({ "Rust", "rust" }, function(opts)
+Languages:register_custom_message({ "Rust", "rust" }, function(opts)
 	return "Oxidizing " .. opts.filename
 end)
 
-lang:register_custom_message({ "zig", "Zig" }, function(opts)
+Languages:register_custom_message({ "zig", "Zig" }, function(opts)
 	return "Writing Zig at " .. opts.filename
 end)
 
@@ -43,7 +36,7 @@ require("cord").setup({
 
 	text = {
 		editing = function(opts)
-			local handle = lang[opts.filetype]
+			local handle = Languages[opts.filetype]
 
 			if handle ~= nil then
 				return handle(opts)
