@@ -109,6 +109,8 @@ servers:register("glsl_analyzer", {
 	root_markers = { ".git" },
 })
 
+servers:register("zls")
+
 M.servers = servers
 
 return M
