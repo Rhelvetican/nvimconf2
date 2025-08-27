@@ -22,6 +22,14 @@ end
 
 local lang = Languages.new()
 
+lang:register_custom_message({ "Rust", "rust" }, function(opts)
+	return "Oxidizing " .. opts.filename
+end)
+
+lang:register_custom_message({ "zig", "Zig" }, function(opts)
+	return "Writing Zig at " .. opts.filename
+end)
+
 require("cord").setup({
 	editor = {
 		client = "neovim",
@@ -36,14 +44,14 @@ require("cord").setup({
 	text = {
 		editing = function(opts)
 			local handle = lang[opts.filetype]
-			if handle then
+
+			if handle ~= nil then
 				return handle(opts)
 			else
 				return "Editing " .. opts.filename
 			end
 		end,
 
-		---@param opts CordOpts
 		workspace = function(opts)
 			local diagnostics = #vim.diagnostic.get(vim.api.nvim_get_current_buf())
 			return "Fixing " .. diagnostics .. diagnostics < 2 and " bug " or " bugs " .. "in" .. opts.filename
