@@ -1,36 +1,26 @@
 ---@alias CordDisplayer fun(opts: CordOpts): string
 
----@param opts CordOpts
----@return string
-local oldschool = function(opts)
-	return "Being oldschool in " .. opts.filename
+---@class Languages: { [string]: CordDisplayer|string }
+Languages = {}
+
+---@param language string | string[]
+---@param callback CordDisplayer
+function Languages:register_custom_message(language, callback)
+	if type(language) == "string" then
+		self[language] = callback
+	else
+		for _, v in ipairs(language) do
+			self[v] = callback
+		end
+	end
 end
 
----@type table<string, CordDisplayer>
-local languages = {
-	["c"] = oldschool,
-	["cpp"] = oldschool,
-	["h"] = oldschool,
-	["hpp"] = oldschool,
-	["objc"] = oldschool,
-	["objcpp"] = oldschool,
+---@return Languages
+Languages.new = function()
+	return setmetatable({}, Languages)
+end
 
-	["rust"] = function(opts)
-		return "Oxidizing " .. opts.filename
-	end,
-
-	["lua"] = function(opts)
-		return "Writing cool lua code at " .. opts.filename
-	end,
-
-	["zig"] = function(opts)
-		return "Zigging at " .. opts.filename
-	end,
-
-	["python"] = function(opts)
-		return "Slithering around at " .. opts.filename
-	end,
-}
+local lang = Languages.new()
 
 require("cord").setup({
 	editor = {
@@ -45,7 +35,7 @@ require("cord").setup({
 
 	text = {
 		editing = function(opts)
-			local handle = languages[opts.filetype]
+			local handle = lang[opts.filetype]
 			if handle then
 				return handle(opts)
 			else
