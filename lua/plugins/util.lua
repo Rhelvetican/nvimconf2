@@ -7,7 +7,7 @@ return {
 	},
 
 	{
-		"echasnovski/mini.nvim",
+		"nvim-mini/mini.nvim",
 		version = "*",
 		config = function()
 			require("configs.mini")
@@ -23,7 +23,7 @@ return {
 
 	{
 		"stevearc/oil.nvim",
-		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		lazy = false,
 
 		config = function()
@@ -127,17 +127,6 @@ return {
 	},
 
 	{
-		"gbprod/yanky.nvim",
-		opts = {
-			highlight = {
-				on_put = false,
-				on_yank = false,
-				timer = 150,
-			},
-		},
-	},
-
-	{
 		"gbprod/substitute.nvim",
 		config = function()
 			require("substitute").setup({
@@ -147,28 +136,5 @@ return {
 				},
 			})
 		end,
-	},
-
-	{
-		"chomosuke/typst-preview.nvim",
-		ft = "typst",
-		version = "1.*",
-		config = function()
-			require("typst-preview").setup({
-				open_cmd = "start %s",
-			})
-		end,
-	},
-
-	{
-		"alex-popov-tech/store.nvim",
-		dependencies = {
-			"OXY2DEV/markview.nvim",
-		},
-		cmd = "Store",
-		keys = {
-			{ "<leader>s", "<cmd>Store<cr>", desc = "Open Plugin Store" },
-		},
-		opts = {},
 	},
 }
