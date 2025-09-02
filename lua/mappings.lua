@@ -9,7 +9,7 @@ map_nvo("<C-c>", "<cmd>%y+<CR>")
 map_nvo("d<leader>", "<cmd>%d+<CR>")
 
 -- Plugins
-map_nvo("<C-o>", "<cmd> Oil --float <CR>")
+map_nvo("<space>ff", "<cmd> Fyler <CR>")
 map_nvo("<C-l>", "<cmd> Lazy <CR>")
 map_nvo("<C-m>", "<cmd> Mason <CR>")
 

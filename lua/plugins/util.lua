@@ -22,44 +22,12 @@ return {
 	},
 
 	{
-		"stevearc/oil.nvim",
-		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-		lazy = false,
-
-		config = function()
-			require("oil").setup({
-				default_file_explorer = true,
-
-				columns = {
-					"icon",
-					"size",
-				},
-
-				win_options = {
-					wrap = true,
-				},
-
-				view_options = {
-					show_hidden = true,
-					is_hidden_file = function(name, _)
-						return name == ".gitignore" or name:sub(1, #".") == "."
-					end,
-				},
-
-				float = {
-					max_width = 0.5,
-					max_height = 0.8,
-				},
-			})
-		end,
-	},
-
-	{
-		"monaqa/dial.nvim",
-
-		config = function()
-			require("configs.dial")
-		end,
+		"A7Lavinraj/fyler.nvim",
+		dependencies = { "nvim-mini/mini.icons" },
+		branch = "stable",
+		opts = {
+			default_explorer = true,
+		},
 	},
 
 	{
@@ -118,21 +86,9 @@ return {
 					},
 
 					substitute = {
-						enabled = false,
+						enabled = true,
 						default_animation = "fade",
 					},
-				},
-			})
-		end,
-	},
-
-	{
-		"gbprod/substitute.nvim",
-		config = function()
-			require("substitute").setup({
-				on_substitute = require("tiny-glimmer.support.substitute").substitute_cb,
-				highlight_substituted_text = {
-					enabled = false,
 				},
 			})
 		end,
