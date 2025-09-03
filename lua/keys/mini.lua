@@ -1,5 +1,5 @@
 local set_keymap = vim.keymap.set
 
-set_keymap("n", "<C-F>", function()
+set_keymap("n", "<C-f>", function()
 	MiniFiles.open()
 end)
