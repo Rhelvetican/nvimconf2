@@ -22,3 +22,19 @@ end, { noremap = true, silent = true })
 map("n", "rn", function()
 	vim.lsp.buf.rename()
 end)
+
+local function git_commit()
+	local message = vim.fn.input("Enter commit messages")
+	vim.cmd(":Git add -A")
+	vim.cmd(":Git commit -m" .. message)
+
+	if vim.fn.input("Push? [y/n]"):lower() == "y" then
+		vim.cmd(":Git push")
+	end
+end
+
+map_nvo("ggg", git_commit)
+
+vim.api.nvim_create_user_command("EzGit", function(_)
+	git_commit()
+end, {})
