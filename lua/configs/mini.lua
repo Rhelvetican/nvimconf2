@@ -9,7 +9,6 @@ require("mini.fuzzy").setup({})
 require("mini.git").setup({})
 require("mini.icons").setup({})
 require("mini.misc").setup({})
-require("mini.move").setup({})
 require("mini.operators").setup({})
 require("mini.pairs").setup({})
 require("mini.sessions").setup({})
@@ -18,10 +17,19 @@ require("mini.tabline").setup({})
 
 require("keys.mini")
 
+---@type string[]
+local whitelistedFiles = {
+	".gitignore",
+	".env",
+	".luarc.json",
+}
+
 require("mini.files").setup({
 	content = {
+		---@param name string
+		---@return boolean
 		filter = function(name)
-			return true
+			return (not name:startswith(".")) or table.contains(whitelistedFiles, name)
 		end,
 	},
 })

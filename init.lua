@@ -1,5 +1,6 @@
 vim.lsp.inlay_hint.enable(true)
 
+require("utils")
 require("options")
 require("lazypkg")
 require("mappings")
