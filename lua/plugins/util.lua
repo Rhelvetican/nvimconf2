@@ -22,15 +22,6 @@ return {
 	},
 
 	{
-		"A7Lavinraj/fyler.nvim",
-		dependencies = { "nvim-mini/mini.icons" },
-		branch = "stable",
-		opts = {
-			default_explorer = true,
-		},
-	},
-
-	{
 		"rachartier/tiny-inline-diagnostic.nvim",
 		priority = 1000,
 

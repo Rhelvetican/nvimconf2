@@ -1,11 +1,7 @@
----@module "mini"
-
 require("mini.align").setup({})
 require("mini.basics").setup({})
 require("mini.bracketed").setup({})
-require("mini.clue").setup({})
 require("mini.comment").setup({})
-require("mini.cursorword").setup({})
 require("mini.diff").setup({})
 require("mini.doc").setup({})
 require("mini.extra").setup({})
@@ -17,9 +13,15 @@ require("mini.move").setup({})
 require("mini.operators").setup({})
 require("mini.pairs").setup({})
 require("mini.sessions").setup({})
-require("mini.splitjoin").setup({})
 require("mini.surround").setup({})
 require("mini.tabline").setup({})
-require("mini.visits").setup({})
 
 require("keys.mini")
+
+require("mini.files").setup({
+	content = {
+		filter = function(name)
+			return true
+		end,
+	},
+})
