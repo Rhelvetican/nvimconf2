@@ -9,19 +9,6 @@ map_nvo("<C-c>", "<cmd>%y+<CR>")
 map_nvo("d<leader>", "<cmd>%d+<CR>")
 
 -- Plugins
-map_nvo("<space>ff", function()
-	if not MiniFiles then
-		MiniFiles = {
-			open = function()
-				vim.notify("MiniFiles not loaded!", 2)
-			end,
-		}
-	end
-
-	MiniFiles.open()
-end)
-map_nvo("<C-l>", "<cmd> Lazy <CR>")
-
 map_nvo("<leader>tt", "<cmd> tab terminal <CR>")
 map_nvo("<leader>ff", "<cmd> Tele find_files <CR>")
 map_nvo("<leader>fo", "<cmd> Tele oldfiles <CR>")
@@ -31,3 +18,7 @@ map_nvo("<leader>g", "<cmd> Tele git_status <CR>")
 map("n", "<leader>ca", function()
 	require("tiny-code-action").code_action({})
 end, { noremap = true, silent = true })
+
+map("n", "rn", function()
+	vim.lsp.buf.rename()
+end)

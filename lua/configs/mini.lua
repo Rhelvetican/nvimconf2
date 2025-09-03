@@ -3,7 +3,14 @@ require("mini.basics").setup({})
 require("mini.comment").setup({})
 require("mini.diff").setup({})
 require("mini.extra").setup({})
-require("mini.files").setup({})
+require("mini.files").setup({
+	mappings = {
+		go_in = "<CR>",
+		go_in_plus = "<C-CR>",
+		go_out = "[",
+		go_out_plus = "<C-[>",
+	},
+})
 require("mini.fuzzy").setup({})
 require("mini.git").setup({})
 require("mini.icons").setup({})
