@@ -23,10 +23,31 @@ map("n", "rn", function()
 	vim.lsp.buf.rename()
 end)
 
+---@param msg string
+---@return string
+local function process_commit_message(msg)
+	local escape_tbl = {
+		["'"] = "\\'",
+		[" "] = "\\ ",
+		['"'] = '\\"',
+	}
+
+	local buf = ""
+	for pat, to in pairs(escape_tbl) do
+		if buf == "" then
+			buf = string.gsub(msg, pat, to)
+		else
+			buf = string.gsub(buf, pat, to)
+		end
+	end
+
+	return buf
+end
+
 local function git_commit()
 	local message = vim.fn.input("Enter commit messages: ")
 	vim.cmd(":Git add -A")
-	vim.cmd(':Git commit -m "' .. message .. '"')
+	vim.cmd(':Git commit -m "' .. process_commit_message(message) .. '"')
 
 	if vim.fn.input("Push? [y/n]            "):lower() == "y" then
 		vim.cmd(":Git push")
