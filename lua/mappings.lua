@@ -47,9 +47,9 @@ end
 local function git_commit()
 	local message = vim.fn.input("Enter commit messages: ")
 	vim.cmd(":Git add -A")
-	vim.cmd(':Git commit -m "' .. process_commit_message(message) .. '"')
+	vim.cmd(":Git commit -m " .. process_commit_message(message))
 
-	if vim.fn.input("Push? [y/n]            "):lower() == "y" then
+	if vim.fn.input("Push? [y/n]\n"):lower() == "y" then
 		vim.cmd(":Git push")
 	end
 end
