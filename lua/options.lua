@@ -12,7 +12,7 @@ vim.diagnostic.config({
 
 o.background = "dark"
 
-o.laststatus = 3 -- global statusline
+o.laststatus = 3
 o.showmode = false
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
