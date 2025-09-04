@@ -32,12 +32,12 @@ local function process_commit_message(msg)
 		['"'] = '\\"',
 	}
 
-	local buf = ""
+	local buf, gsub = "", string.gsub
 	for pat, to in pairs(escape_tbl) do
 		if buf == "" then
-			buf = string.gsub(msg, pat, to)
+			buf = gsub(msg, pat, to)
 		else
-			buf = string.gsub(buf, pat, to)
+			buf = gsub(buf, pat, to)
 		end
 	end
 
@@ -55,6 +55,9 @@ local function git_commit()
 end
 
 map_nvo("ggg", git_commit)
+map_nvo("ggp", function()
+	vim.cmd(":Git pull")
+end)
 
 vim.api.nvim_create_user_command("EzGit", function(_)
 	git_commit()
