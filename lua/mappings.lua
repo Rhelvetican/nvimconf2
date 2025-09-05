@@ -9,7 +9,6 @@ map_nvo("<C-c>", "<cmd>%y+<CR>")
 map_nvo("d<leader>", "<cmd>%d+<CR>")
 
 -- Plugins
-map_nvo("<leader>tt", "<cmd> tab terminal <CR>")
 map_nvo("<leader>ff", "<cmd> Tele find_files <CR>")
 map_nvo("<leader>fo", "<cmd> Tele oldfiles <CR>")
 map_nvo("<leader>fw", "<cmd> Tele live_grep <CR>")
@@ -59,6 +58,6 @@ map_nvo("ggp", function()
 	vim.cmd(":Git pull")
 end)
 
-vim.api.nvim_create_user_command("EzGit", function(_)
-	git_commit()
-end, {})
+map_nvo("<leader>tt", function()
+	Snacks.terminal.get()
+end)

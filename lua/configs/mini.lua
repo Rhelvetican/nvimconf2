@@ -5,8 +5,8 @@ require("mini.diff").setup({})
 require("mini.extra").setup({})
 require("mini.files").setup({
 	mappings = {
-		go_in = "<CR>",
-		go_in_plus = "<C-CR>",
+		go_in = "]",
+		go_in_plus = "<C-]>",
 		go_out = "[",
 		go_out_plus = "<C-[>",
 	},
@@ -21,3 +21,5 @@ require("mini.sessions").setup({})
 require("mini.surround").setup({})
 
 require("keys.mini")
+
+require("mini.colors").setup({})

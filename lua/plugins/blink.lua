@@ -7,7 +7,7 @@ return {
 		{ "folke/lazydev.nvim", ft = "lua" },
 	},
 
-	version = "*",
+	version = "1.*",
 	opts = {
 		keymap = {
 			preset = "super-tab",

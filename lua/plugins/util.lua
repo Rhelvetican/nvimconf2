@@ -7,6 +7,22 @@ return {
 	},
 
 	{
+		"nvim-telescope/telescope.nvim",
+		version = "*",
+
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = require("configs.telescope"),
+	},
+
+	{
+		"lewis6991/hover.nvim",
+
+		config = function()
+			require("configs.hover")
+		end,
+	},
+
+	{
 		"nvim-mini/mini.nvim",
 		version = "*",
 		config = function()
@@ -17,8 +33,24 @@ return {
 	{
 		"folke/snacks.nvim",
 		event = "VimEnter",
-		opts = require("configs.snacks"),
+
+		opts = {
+			bigfile = { enabled = true },
+			dashboard = { enabled = true },
+			indent = { enabled = true, animate = { enabled = false }, chunk = { enabled = true } },
+			input = { enabled = true },
+			notifier = { enabled = true },
+			picker = { enabled = true },
+			statuscolumn = { enabled = true },
+			terminal = { enabled = true },
+			words = { enabled = true },
+		},
+
 		keys = require("keys.snacks"),
+
+		config = function()
+			require("configs.snacks")
+		end,
 	},
 
 	{

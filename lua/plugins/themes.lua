@@ -2,13 +2,6 @@
 ---@type LazySpec
 return {
 	{
-		"rktjmp/lush.nvim",
-		dependencies = {
-			"rktjmp/shipwright.nvim",
-		},
-	},
-
-	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,

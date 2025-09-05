@@ -1,27 +1,21 @@
----@alias CordDisplayer fun(opts: CordOpts): string
-
----@class Languages: { [string]: CordDisplayer|string }
+---@type {[string]: fun(opts: CordOpts): string}
 Languages = {}
 
----@param language string | string[]
----@param callback CordDisplayer
-function Languages:register_custom_message(language, callback)
-	if type(language) == "string" then
-		self[language] = callback
-	else
-		for _, v in ipairs(language) do
-			self[v] = callback
-		end
-	end
+Languages["Rust"] = function(o)
+	return "Oxidizing " .. o.filename .. " (Line " .. o.cursor_line .. ")"
 end
 
-Languages:register_custom_message({ "Rust", "rust" }, function(opts)
-	return "Oxidizing " .. opts.filename
-end)
+Languages["Zig"] = function(o)
+	return "Zigging " .. o.filename .. " (Line " .. o.cursor_line .. ")"
+end
 
-Languages:register_custom_message({ "zig", "Zig" }, function(opts)
-	return "Writing Zig at " .. opts.filename
-end)
+Languages["Lua"] = function(o)
+	return "Writing (probably) awesome Lua at " .. o.filename .. " (Line " .. o.cursor_line .. ")"
+end
+
+Languages["rust"] = Languages["Rust"]
+Languages["zig"] = Languages["Zig"]
+Languages["lua"] = Languages["Lua"]
 
 require("cord").setup({
 	editor = {
