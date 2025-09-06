@@ -8,7 +8,6 @@ require("mini.fuzzy").setup({})
 require("mini.git").setup({})
 require("mini.icons").setup({})
 require("mini.misc").setup({})
-require("mini.notify").setup({})
 require("mini.operators").setup({})
 require("mini.pairs").setup({})
 require("mini.sessions").setup({})
@@ -25,4 +24,13 @@ require("mini.files").setup({
 		go_out = "[",
 		go_out_plus = "<C-[>",
 	},
+})
+
+local notify = require("mini.notify")
+notify.setup({})
+
+vim.notify = notify.make_notify({
+	ERROR = { duration = 6000 },
+	WARN = { duration = 4000 },
+	INFO = { duration = 2000 },
 })

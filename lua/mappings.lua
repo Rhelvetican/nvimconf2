@@ -50,24 +50,37 @@ local function process_commit_message(msg)
 	return buf
 end
 
+---@param msg string
+local function commit(msg)
+	vim.cmd(":Git add -A")
+	vim.cmd(":Git commit -m " .. process_commit_message(msg))
+
+	Snacks.input.input({ prompt = "Push Commit? [y/n] " }, function(confirmation)
+		if confirmation and confirmation:lower() == "y" then
+			vim.cmd(":Git push")
+		end
+	end)
+end
+
 local function git_commit()
 	Snacks.input.input({ prompt = "Enter Commit Message: " }, function(input)
 		if input then
-			vim.cmd(":Git add -A")
-			vim.cmd(":Git commit -m " .. process_commit_message(input))
+			local success, msg = pcall(commit, input)
 
-			Snacks.input.input({ prompt = "Push Commit? [y/n] " }, function(confirmation)
-				if confirmation and confirmation:lower() == "y" then
-					vim.cmd(":Git push")
-				end
-			end)
+			if not success and type(msg) == "string" then
+				vim.notify("Failed to commit and/or push changes.", vim.log.levels.ERROR)
+			end
 		end
 	end)
 end
 
 map_nvo("ggg", git_commit)
 map_nvo("ggp", function()
-	vim.cmd(":Git pull")
+	local success, msg = pcall(vim.cmd, ":Git pull")
+
+	if not success and type(msg) == "string" then
+		vim.notify("Failed to pull changes.", vim.log.levels.ERROR)
+	end
 end)
 
 map_nvo("<leader>tt", function()
