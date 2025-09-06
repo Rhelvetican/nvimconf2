@@ -74,23 +74,14 @@ return {
 
 	{
 		"rachartier/tiny-code-action.nvim",
+		event = "LspAttach",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
-			{
-				"folke/snacks.nvim",
-				opts = {
-					terminal = {},
-				},
-			},
+			{ "folke/snacks.nvim", opts = { terminal = {} } },
 		},
-		event = "LspAttach",
 		opts = {
-			picker = {
-				"buffer",
-				opts = {
-					hotkeys = true,
-				},
-			},
+			backend = "delta",
+			picker = "snacks",
 		},
 	},
 

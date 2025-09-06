@@ -1,3 +1,4 @@
+local snacks = require("tiny-code-action.pickers.snacks")
 local map = vim.keymap.set
 
 local function map_nvo(keybind, command)
@@ -43,15 +44,7 @@ local function process_commit_message(msg)
 	return buf
 end
 
-local function git_commit()
-	local message = vim.fn.input("Enter commit messages: ")
-	vim.cmd(":Git add -A")
-	vim.cmd(":Git commit -m " .. process_commit_message(message))
-
-	if vim.fn.input("Push? [y/n]\n"):lower() == "y" then
-		vim.cmd(":Git push")
-	end
-end
+local function git_commit() end
 
 map_nvo("ggg", git_commit)
 map_nvo("ggp", function()
