@@ -39,7 +39,6 @@ return {
 			dashboard = { enabled = true },
 			indent = { enabled = true, animate = { enabled = false }, chunk = { enabled = true } },
 			input = { enabled = true },
-			notifier = { enabled = true },
 			picker = { enabled = true },
 			statuscolumn = { enabled = true },
 			terminal = { enabled = true },
@@ -80,7 +79,7 @@ return {
 			{ "folke/snacks.nvim", opts = { terminal = {} } },
 		},
 		opts = {
-			backend = "delta",
+			backend = "vim",
 			picker = "snacks",
 
 			backend_opts = {
