@@ -19,7 +19,14 @@ map("n", "<leader>ca", function()
 end, { noremap = true, silent = true })
 
 map("n", "rn", function()
-	vim.lsp.buf.rename()
+	Snacks.input.input({
+		prompt = "Rename item to",
+		function(input)
+			if input then
+				vim.lsp.buf.rename(input)
+			end
+		end,
+	})
 end)
 
 ---@param msg string
