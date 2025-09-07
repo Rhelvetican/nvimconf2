@@ -18,15 +18,15 @@ map("n", "<leader>ca", function()
 	require("tiny-code-action").code_action({})
 end, { noremap = true, silent = true })
 
-map("n", "rn", function()
+---@module "snacks"
+map("n", "<leader>rn", function()
 	Snacks.input.input({
 		prompt = "Rename item to",
-		function(input)
-			if input then
-				vim.lsp.buf.rename(input)
-			end
-		end,
-	})
+	}, function(input)
+		if input then
+			vim.lsp.buf.rename(input)
+		end
+	end)
 end)
 
 ---@param msg string
@@ -55,7 +55,7 @@ local function commit(msg)
 	vim.cmd(":Git add -A")
 	vim.cmd(":Git commit -m " .. process_commit_message(msg))
 
-	Snacks.input.input({ prompt = "Push Commit? [y/n] " }, function(confirmation)
+	Snacks.input.input({ prompt = "Push commit? [y/n] " }, function(confirmation)
 		if confirmation and confirmation:lower() == "y" then
 			vim.cmd(":Git push")
 		end
@@ -63,7 +63,7 @@ local function commit(msg)
 end
 
 local function git_commit()
-	Snacks.input.input({ prompt = "Enter Commit Message: " }, function(input)
+	Snacks.input.input({ prompt = "Enter commit message: " }, function(input)
 		if input then
 			local success, msg = pcall(commit, input)
 
