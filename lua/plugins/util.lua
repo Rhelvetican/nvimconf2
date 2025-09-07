@@ -32,7 +32,6 @@ return {
 
 	{
 		"folke/snacks.nvim",
-		event = "VimEnter",
 
 		opts = {
 			bigfile = { enabled = true },
@@ -47,7 +46,8 @@ return {
 
 		keys = require("keys.snacks"),
 
-		config = function()
+		init = function()
+			require("snacks")
 			require("configs.snacks")
 		end,
 	},
