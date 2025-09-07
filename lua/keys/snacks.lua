@@ -43,6 +43,57 @@ return {
 		desc = "File Explorer",
 	},
 
+	-- Git
+	{
+		"gb",
+		function()
+			Snacks.picker.git_branches()
+		end,
+		desc = "Git Branches",
+	},
+	{
+		"gl",
+		function()
+			Snacks.picker.git_log()
+		end,
+		desc = "Git Log",
+	},
+	{
+		"gL",
+		function()
+			Snacks.picker.git_log_line()
+		end,
+		desc = "Git Log Line",
+	},
+	{
+		"gs",
+		function()
+			Snacks.picker.git_status()
+		end,
+		desc = "Git Status",
+	},
+	{
+		"gS",
+		function()
+			Snacks.picker.git_stash()
+		end,
+		desc = "Git Stash",
+	},
+	{
+		"gd",
+		function()
+			Snacks.picker.git_diff()
+		end,
+		desc = "Git Diff (Hunks)",
+	},
+	{
+		"gf",
+		function()
+			Snacks.picker.git_log_file()
+		end,
+		desc = "Git Log File",
+	},
+
 	-- LSP
 	{
 		"ld",
@@ -51,8 +102,6 @@ return {
 		end,
 		desc = "Goto Definition",
 	},
-
-	-- LSP
 	{
 		"lr",
 		function()
