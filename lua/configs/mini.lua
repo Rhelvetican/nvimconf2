@@ -5,7 +5,6 @@ require("mini.diff").setup({})
 require("mini.extra").setup({})
 
 require("mini.fuzzy").setup({})
-require("mini.git").setup({})
 require("mini.icons").setup({})
 require("mini.misc").setup({})
 require("mini.operators").setup({})

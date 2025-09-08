@@ -31,15 +31,15 @@ return {
 	{
 		"folke/snacks.nvim",
 
+		---@type snacks.Config
 		opts = {
-			bigfile = { enabled = true },
-			dashboard = { enabled = true },
-			indent = { enabled = true, animate = { enabled = false }, chunk = { enabled = true } },
-			input = { enabled = true },
-			picker = { enabled = true },
-			statuscolumn = { enabled = true },
-			terminal = { enabled = true },
-			words = { enabled = true },
+			dashboard = {},
+			indent = { animate = { enabled = false }, chunk = { enabled = true } },
+			input = {},
+			picker = {},
+			statuscolumn = {},
+			terminal = { win = {} },
+			words = {},
 		},
 
 		keys = require("keys.snacks"),
