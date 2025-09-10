@@ -30,7 +30,7 @@ return {
 			input = {},
 			picker = {},
 			statuscolumn = {},
-			terminal = { win = {} },
+			terminal = { win = { border = "rounded" } },
 			words = {},
 		},
 

@@ -16,8 +16,8 @@ map_nvo("<leader>fo", "<cmd> Tele oldfiles <CR>")
 map_nvo("<leader>fw", "<cmd> Tele live_grep <CR>")
 map_nvo("<leader>g", "<cmd> Tele git_status <CR>")
 
-map_nvo("<leader>t", function()
-	Snacks.terminal.toggle({ "nu" })
+map_nvo("tt", function()
+	Snacks.terminal.toggle({ "nu" }, {})
 end)
 
 map("n", "<leader>ca", function()
@@ -34,6 +34,8 @@ map_nvo("<leader>rn", function()
 		end
 	end)
 end)
+
+-- Orelly!
 
 local gitui = require("gitui")
 gitui.setup()
