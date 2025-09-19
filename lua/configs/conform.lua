@@ -1,25 +1,25 @@
----@module "conform"
-
-local config = {
-	---@type table<string, conform.FormatterConfigOverride>
+return {
 	formatters = {
 		["clang-format"] = {
 			inherit = true,
 			prepend_args = { "-assume-filename", '--style="{BasedOnStyle: llvm, IndentWidth: 4}"' },
 		},
+
+		["rustfmt"] = {
+			options = {
+				default_edition = "2024",
+			},
+		},
 	},
 
-	---@type table<string, conform.FiletypeFormatter>
 	formatters_by_ft = {
 		lua = { "stylua" },
 
 		python = { "ruff_fix", "ruff_format", "ruff_organize_import" },
 
-		rust = { "rustfmt", lsp_format = "fallback" },
+		rust = { lsp_format = "prefer" },
 		toml = { "taplo", lsp_format = "fallback" },
 		zig = { "zigfmt" },
-
-		haskell = { "fourmolu", lsp_format = "fallback" },
 
 		typescript = { "deno_fmt", lsp_format = "fallback" },
 		javascript = { "deno_fmt", lsp_format = "fallback" },
@@ -28,8 +28,6 @@ local config = {
 		cpp = { lsp_format = "first" },
 		h = { lsp_format = "first" },
 		hpp = { lsp_format = "first" },
-
-		typst = { "typstyle" },
 	},
 
 	format_on_save = {
@@ -37,5 +35,3 @@ local config = {
 		lsp_format = "fallback",
 	},
 }
-
-return config
