@@ -35,6 +35,8 @@ map_nvo("<leader>rn", function()
 	end)
 end)
 
+map_nvo("<leader>fg", Snacks.picker.grep)
+
 -- Orelly!
 
 local gitui = require("gitui")
