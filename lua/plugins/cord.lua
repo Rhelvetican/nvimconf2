@@ -1,13 +1,13 @@
 ---@type {[string]: fun(opts: CordOpts): string}
 local Languages = {}
 
----@class Language
+---@class CordLanguage
 ---@field language string|string[]
 ---@field message fun(opts: CordOpts): string
----@overload fun(o: Language): Language
+---@overload fun(o: CordLanguage): CordLanguage
 local Language = setmetatable({}, {
-	---@param o Language
-	---@return Language
+	---@param o CordLanguage
+	---@return CordLanguage
 	__call = function(_, o)
 		if type(o.language) == "string" then
 			Languages[o.language] = o.message

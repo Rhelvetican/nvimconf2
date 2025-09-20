@@ -4,10 +4,12 @@ return {
 	ft = "lua",
 	priority = 9999,
 
-	dependencies = {},
-
-	opts = {
-		"lazy.nvim",
-		{ path = vim.env.VIMRUNTIME, words = { "vim" } },
-	},
+	config = function()
+		require("lazydev").setup({
+			library = {
+				"lazy.nvim",
+				{ path = vim.env.VIMRUNTIME, words = { "vim" } },
+			},
+		})
+	end,
 }
