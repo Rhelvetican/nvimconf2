@@ -5,7 +5,6 @@ return {
 		"saghen/blink.compat",
 		{ "rafamadriz/friendly-snippets", event = "BufEnter" },
 		{ "folke/lazydev.nvim", ft = "lua" },
-		{ "Fildo7525/pretty_hover", event = "LspAttach", opts = { border = "rounded" } },
 	},
 
 	version = "1.*",
@@ -17,6 +16,12 @@ return {
 		cmdline = {
 			keymap = { preset = "super-tab" },
 			completion = {
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 50,
+					treesitter_highlighting = true,
+				},
+
 				menu = {
 					auto_show = true,
 				},
@@ -33,24 +38,17 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 50,
 				treesitter_highlighting = true,
-
-				draw = function(opts)
-					if opts.item and opts.item.documentation and opts.item.documentation.value then
-						local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
-						opts.item.documentation.value = out:string()
-					end
-
-					opts.default_implementation(opts)
-				end,
 			},
 
 			keyword = { range = "full" },
+
 			list = {
 				selection = {
 					preselect = true,
 					auto_insert = false,
 				},
 			},
+
 			menu = {
 				draw = {
 					columns = {

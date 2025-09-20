@@ -12,6 +12,8 @@ require("mini.pairs").setup({})
 require("mini.sessions").setup({})
 require("mini.surround").setup({})
 
+require("mini.statusline").setup({})
+
 require("keys.mini")
 
 require("mini.colors").setup({})

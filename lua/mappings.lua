@@ -9,13 +9,6 @@ end
 map_nvo("<C-s>", "<cmd>w<CR>")
 map_nvo("<C-c>", "<cmd>%y+<CR>")
 map_nvo("d<leader>", "<cmd>%d+<CR>")
-
--- Plugins
-map_nvo("<leader>ff", "<cmd> Tele find_files <CR>")
-map_nvo("<leader>fo", "<cmd> Tele oldfiles <CR>")
-map_nvo("<leader>fw", "<cmd> Tele live_grep <CR>")
-map_nvo("<leader>g", "<cmd> Tele git_status <CR>")
-
 map_nvo("tt", function()
 	Snacks.terminal.toggle({ "nu" }, {})
 end)
@@ -35,11 +28,9 @@ map_nvo("<leader>rn", function()
 	end)
 end)
 
-map_nvo("<leader>fg", Snacks.picker.grep)
-
--- Orelly!
-
 local gitui = require("gitui")
 gitui.setup()
 
 map_nvo("gt", gitui.toggle)
+
+map_nvo("<leader>fg", Snacks.picker.grep)

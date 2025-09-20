@@ -2,8 +2,9 @@
 ---@type LazySpec
 return {
 	{
-		"nvim-lua/plenary.nvim",
-		lazy = true,
+		"akinsho/bufferline.nvim",
+		event = "BufReadPre",
+		opts = require("configs.bufferline"),
 	},
 
 	{
