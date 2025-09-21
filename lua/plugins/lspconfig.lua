@@ -1,9 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	priority = 1000,
-	dependencies = {
-		"j-hui/fidget.nvim",
-	},
 
 	event = { "BufReadPre", "BufNewFile" },
 

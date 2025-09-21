@@ -2,7 +2,6 @@ require("mini.align").setup({})
 require("mini.basics").setup({})
 require("mini.comment").setup({})
 require("mini.diff").setup({})
-require("mini.extra").setup({})
 
 require("mini.fuzzy").setup({})
 require("mini.icons").setup({})
@@ -11,7 +10,6 @@ require("mini.operators").setup({})
 require("mini.pairs").setup({})
 require("mini.sessions").setup({})
 require("mini.surround").setup({})
-
 require("mini.statusline").setup({})
 
 require("keys.mini")
