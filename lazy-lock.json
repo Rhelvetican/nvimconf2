@@ -23,5 +23,6 @@
   "tiny-glimmer.nvim": { "branch": "main", "commit": "84f6b0d8d83b098141e67072ef8f2606820a4454" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "f64efd33a51ea89bdb847fb3aaf716e96b83ba1a" },
   "tokyonight.nvim": { "branch": "main", "commit": "14fd5ff7f84027064724ec3157fe903199e77ded" },
+  "wezterm-types": { "branch": "main", "commit": "099e4ad10b8787a6cc88cbb13281c0cb2224e6d1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
