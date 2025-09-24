@@ -18,12 +18,6 @@ return {
 		cmdline = {
 			keymap = { preset = "enter" },
 			completion = {
-				documentation = {
-					auto_show = true,
-					auto_show_delay_ms = 50,
-					treesitter_highlighting = true,
-				},
-
 				menu = {
 					auto_show = true,
 				},
