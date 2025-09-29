@@ -5,7 +5,7 @@ local M = {}
 local servers = { servers = {} }
 
 ---@param name string
----@param config vim.lsp.Config | table<string, any> | nil
+---@param config? vim.lsp.Config| table<string, any>
 function servers:register(name, config)
 	local ok, val = pcall(require, "lspconfig.configs." .. name)
 
@@ -22,12 +22,14 @@ servers:register("clangd")
 servers:register("emmylua_ls", {
 	cmd = { "emmylua_ls" },
 	filetypes = { "lua" },
+
 	root_markers = {
 		".luarc.json",
 		".emmyrc.json",
 		".luacheckrc",
 		".git",
 	},
+
 	workspace_required = false,
 })
 
