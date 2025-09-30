@@ -16,4 +16,4 @@ local function zig_autorun(actions)
 	end
 end
 
-zig_autorun({ "source.fixAll", "source.organizeImports" })
+zig_autorun({ "source.organizeImports" })
