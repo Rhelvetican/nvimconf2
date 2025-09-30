@@ -22,8 +22,6 @@ return {
 					auto_show = true,
 				},
 			},
-
-			sources = {},
 		},
 
 		appearance = {

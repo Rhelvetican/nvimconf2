@@ -17,8 +17,6 @@ function servers:register(name, config)
 	end
 end
 
-servers:register("clangd")
-
 servers:register("emmylua_ls", {
 	cmd = { "emmylua_ls" },
 	filetypes = { "lua" },
@@ -31,6 +29,10 @@ servers:register("emmylua_ls", {
 	},
 
 	workspace_required = false,
+})
+
+servers:register("clangd", {
+	cmd = { "clangd", "--clang-tidy", "--background-index" },
 })
 
 servers:register("taplo")
