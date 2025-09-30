@@ -5,7 +5,7 @@ return {
 		formatters = {
 			["clang-format"] = {
 				inherit = true,
-				prepend_args = { '-style="{BasedOnStyle: LLVM, IndentWidth: 4, ColumnWidth: 256}"' },
+				prepend_args = { "-style={BasedOnStyle: LLVM, IndentWidth: 4, ColumnWidth: 256}" },
 			},
 
 			["rustfmt"] = {
