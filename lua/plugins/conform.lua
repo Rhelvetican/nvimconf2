@@ -1,17 +1,12 @@
 return {
 	"stevearc/conform.nvim",
 	event = "BufWritePre",
+
 	opts = {
 		formatters = {
 			["clang-format"] = {
 				inherit = true,
 				prepend_args = { "-style={BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 256}" },
-			},
-
-			["rustfmt"] = {
-				options = {
-					default_edition = "2024",
-				},
 			},
 		},
 
@@ -22,7 +17,7 @@ return {
 
 			rust = { lsp_format = "prefer" },
 			toml = { "taplo", lsp_format = "fallback" },
-			zig = { "zigfmt" },
+			zig = { "zigfmt", lsp_format = "fallback" },
 
 			typescript = { "deno_fmt", lsp_format = "fallback" },
 			javascript = { "deno_fmt", lsp_format = "fallback" },
