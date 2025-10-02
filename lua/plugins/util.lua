@@ -114,4 +114,13 @@ return {
 		event = "BufReadPost",
 		config = true,
 	},
+
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+
+		dependencies = {
+			"saghen/blink.cmp",
+		},
+	},
 }
