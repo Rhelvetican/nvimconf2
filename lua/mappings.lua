@@ -34,3 +34,4 @@ gitui.setup()
 map_nvo("gt", gitui.toggle)
 
 map_nvo("<leader>fg", Snacks.picker.grep)
+map({ "n" }, "<C-k>", vim.lsp.buf.hover)
