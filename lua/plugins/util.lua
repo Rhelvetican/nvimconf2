@@ -116,11 +116,12 @@ return {
 	},
 
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
+		"chomosuke/typst-preview.nvim",
+		ft = "typst",
+		version = "1.*",
 
-		dependencies = {
-			"saghen/blink.cmp",
+		opts = {
+			open_cmd = "start %s",
 		},
 	},
 }
