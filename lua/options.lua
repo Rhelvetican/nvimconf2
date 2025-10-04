@@ -18,6 +18,11 @@ o.showmode = false
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 o.clipboard = "unnamedplus"
 
+o.shell = "nu"
+o.shellcmdflag = "-c"
+o.shellquote = ""
+o.shellxquote = ""
+
 -- Indenting
 o.expandtab = true
 o.shiftwidth = 4
