@@ -111,7 +111,17 @@ servers:register("glsl_analyzer", {
 	filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs" },
 })
 
-servers:register("zls")
+servers:register("zls", {
+	cmd = { "zls" },
+	filetypes = { "zig", "zon" },
+	root_markers = { "build.zig.zon", ".git" },
+	settings = {
+		zls = {
+			warn_style = true,
+			semantic_tokens = "full",
+		},
+	},
+})
 
 M.servers = servers
 

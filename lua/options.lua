@@ -10,6 +10,8 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
+vim.lsp.inlay_hint.enable(true)
+
 o.background = "dark"
 
 o.laststatus = 3

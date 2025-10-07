@@ -18,6 +18,37 @@ return {
 	},
 
 	{
-		"nyoom-engineering/oxocarbon.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+
+		config = function()
+			require("catppuccin").setup({
+				flavour = "mocha",
+
+				lsp_styles = {
+					underlines = {
+						errors = { "undercurl" },
+						hints = { "undercurl" },
+						warnings = { "undercurl" },
+						information = { "undercurl" },
+						ok = { "undercurl" },
+					},
+				},
+
+				highlight_overrides = {
+					all = function(_)
+						return {
+							Special = { link = "@punctuation.bracket" },
+							SpecialKey = { link = "Special" },
+							["@punctuation.special"] = { link = "Special" },
+							["@punctuation.special.markdown"] = { link = "Special" },
+						}
+					end,
+				},
+
+				auto_integrations = true,
+			})
+		end,
 	},
 }
