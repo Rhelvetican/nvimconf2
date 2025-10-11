@@ -87,18 +87,10 @@ return {
 			},
 
 			transform_items = function(ctx, items)
-				if table.contains(ctx.providers, "ripgrep") then
-					for _, item in ipairs(items) do
+				for _, item in ipairs(items) do
+					if item.source_id == "ripgrep" then
 						item.labelDetails = {
 							description = "(rg)",
-						}
-					end
-				end
-
-				if table.contains(ctx.providers, "lazydev") then
-					for _, item in ipairs(items) do
-						item.labelDetails = {
-							description = "(lazy)",
 						}
 					end
 				end
