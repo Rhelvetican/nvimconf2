@@ -7,7 +7,6 @@ require("mini.fuzzy").setup({})
 require("mini.icons").setup({})
 require("mini.misc").setup({})
 require("mini.operators").setup({})
-require("mini.pairs").setup({})
 require("mini.sessions").setup({})
 require("mini.surround").setup({})
 require("mini.statusline").setup({})
@@ -32,4 +31,10 @@ vim.notify = notify.make_notify({
 	ERROR = { duration = 6000 },
 	WARN = { duration = 4000 },
 	INFO = { duration = 2000 },
+})
+
+require("mini.pairs").setup({
+	mappings = {
+		["'"] = false,
+	},
 })

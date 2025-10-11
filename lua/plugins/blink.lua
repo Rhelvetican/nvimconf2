@@ -1,33 +1,35 @@
+local lazydev = {
+	"folke/lazydev.nvim",
+	ft = "lua",
+	priority = 9999,
+
+	dependencies = {
+		{
+			"DrKJeff16/wezterm-types",
+			lazy = true,
+			version = false,
+		},
+	},
+
+	config = function()
+		require("lazydev").setup({
+			library = {
+				"lazy.nvim",
+				{ path = vim.env.VIMRUNTIME, words = { "vim" } },
+				{ path = "wezterm-types", mods = { "wezterm" } },
+			},
+		})
+	end,
+}
+
 return {
 	"saghen/blink.cmp",
 
 	dependencies = {
 		"saghen/blink.compat",
 		{ "rafamadriz/friendly-snippets", event = "BufEnter" },
-		{ "archie-judd/blink-cmp-words" },
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			priority = 9999,
-
-			dependencies = {
-				{
-					"DrKJeff16/wezterm-types",
-					lazy = true,
-					version = false,
-				},
-			},
-
-			config = function()
-				require("lazydev").setup({
-					library = {
-						"lazy.nvim",
-						{ path = vim.env.VIMRUNTIME, words = { "vim" } },
-						{ path = "wezterm-types", mods = { "wezterm" } },
-					},
-				})
-			end,
-		},
+		{ "mikavilpas/blink-ripgrep.nvim", version = "*" },
+		lazydev,
 	},
 
 	version = "1.*",
@@ -36,6 +38,27 @@ return {
 	opts = {
 		keymap = {
 			preset = "super-tab",
+		},
+
+		sources = {
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline", "ripgrep" },
+			min_keyword_length = 1,
+
+			providers = {
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
+
+				ripgrep = {
+					name = "Ripgrep",
+					module = "blink-ripgrep",
+					opts = {},
+				},
+			},
+
+			per_filetype = {},
 		},
 
 		cmdline = {
@@ -86,45 +109,6 @@ return {
 		signature = {
 			enabled = true,
 			window = { treesitter_highlighting = true },
-		},
-
-		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline", "dictionary" },
-			min_keyword_length = 2,
-
-			providers = {
-				lazydev = {
-					name = "LazyDev",
-					module = "lazydev.integrations.blink",
-					score_offset = 100,
-				},
-
-				thesaurus = {
-					name = "blink-cmp-words",
-					module = "blink-cmp-words.thesaurus",
-					opts = {
-						score_offset = 0,
-						definition_pointers = { "!", "&", "^" },
-						similarity_pointers = { "&", "^" },
-						similarity_depth = 2,
-					},
-				},
-
-				dictionary = {
-					name = "blink-cmp-words",
-					module = "blink-cmp-words.dictionary",
-					opts = {
-						dictionary_search_threshold = 3,
-						score_offset = 0,
-						definition_pointers = { "!", "&", "^" },
-					},
-				},
-			},
-
-			per_filetype = {
-				text = { "dictionary" },
-				markdown = { "thesaurus" },
-			},
 		},
 	},
 
