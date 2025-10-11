@@ -4,7 +4,30 @@ return {
 	dependencies = {
 		"saghen/blink.compat",
 		{ "rafamadriz/friendly-snippets", event = "BufEnter" },
-		{ "folke/lazydev.nvim", ft = "lua" },
+		{ "archie-judd/blink-cmp-words" },
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			priority = 9999,
+
+			dependencies = {
+				{
+					"DrKJeff16/wezterm-types",
+					lazy = true,
+					version = false,
+				},
+			},
+
+			config = function()
+				require("lazydev").setup({
+					library = {
+						"lazy.nvim",
+						{ path = vim.env.VIMRUNTIME, words = { "vim" } },
+						{ path = "wezterm-types", mods = { "wezterm" } },
+					},
+				})
+			end,
+		},
 	},
 
 	version = "1.*",
@@ -66,13 +89,41 @@ return {
 		},
 
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline", "dictionary" },
+			min_keyword_length = 2,
+
 			providers = {
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",
 					score_offset = 100,
 				},
+
+				thesaurus = {
+					name = "blink-cmp-words",
+					module = "blink-cmp-words.thesaurus",
+					opts = {
+						score_offset = 0,
+						definition_pointers = { "!", "&", "^" },
+						similarity_pointers = { "&", "^" },
+						similarity_depth = 2,
+					},
+				},
+
+				dictionary = {
+					name = "blink-cmp-words",
+					module = "blink-cmp-words.dictionary",
+					opts = {
+						dictionary_search_threshold = 3,
+						score_offset = 0,
+						definition_pointers = { "!", "&", "^" },
+					},
+				},
+			},
+
+			per_filetype = {
+				text = { "dictionary" },
+				markdown = { "thesaurus" },
 			},
 		},
 	},
