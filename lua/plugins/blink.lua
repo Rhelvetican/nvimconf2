@@ -22,6 +22,25 @@ local lazydev = {
 	end,
 }
 
+---@generic T
+---@generic U
+---@param tbl T[]|{ [T]: U }|{ [U]: T }
+---@param item T
+---@return boolean
+function table.contains(tbl, item)
+	if tbl[item] ~= nil then
+		return true
+	end
+
+	for _, val in pairs(tbl) do
+		if val == item then
+			return true
+		end
+	end
+
+	return false
+end
+
 return {
 	"saghen/blink.cmp",
 
@@ -54,9 +73,38 @@ return {
 				ripgrep = {
 					name = "Ripgrep",
 					module = "blink-ripgrep",
-					opts = {},
+
+					---@type blink-ripgrep.Options
+					opts = {
+						backend = {
+							use = "gitgrep-or-ripgrep",
+							ripgrep = {
+								max_filesize = "16M",
+							},
+						},
+					},
 				},
 			},
+
+			transform_items = function(ctx, items)
+				if table.contains(ctx.providers, "ripgrep") then
+					for _, item in ipairs(items) do
+						item.labelDetails = {
+							description = "(rg)",
+						}
+					end
+				end
+
+				if table.contains(ctx.providers, "lazydev") then
+					for _, item in ipairs(items) do
+						item.labelDetails = {
+							description = "(lazy)",
+						}
+					end
+				end
+
+				return items
+			end,
 
 			per_filetype = {},
 		},

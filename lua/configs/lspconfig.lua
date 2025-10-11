@@ -40,6 +40,14 @@ servers:register("marksman")
 servers:register("nushell")
 servers:register("jsonls")
 
+servers:register("tinymist", {
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable",
+	},
+})
+
 servers:register("denols", {
 	settings = {
 		deno = {
@@ -67,44 +75,10 @@ servers:register("denols", {
 	},
 })
 
-servers:register("basedpyright", {
-	settings = {
-		basedpyright = {
-			disableOrganizeImports = false,
-			disableTaggedHints = false,
-
-			analysis = {
-				typeCheckingMode = "standard",
-				useLibraryCodeForTypes = true,
-				autoImportCompletions = true,
-				autoSearchPaths = true,
-
-				inlayHints = {
-					genericTypes = true,
-				},
-			},
-		},
-	},
-})
-
 servers:register("ruff", {
 	on_attach = function(client, _)
 		client.server_capabilities.hoverProvider = false
 	end,
-})
-
-servers:register("sqls", {
-	on_attach = function(client, bufnr)
-		require("sqls").on_attach(client, bufnr)
-	end,
-})
-
-servers:register("tinymist", {
-	settings = {
-		formatterMode = "typstyle",
-		exportPdf = "onType",
-		semanticTokens = "disable",
-	},
 })
 
 servers:register("glsl_analyzer", {
@@ -122,6 +96,8 @@ servers:register("zls", {
 		},
 	},
 })
+
+servers:register("zuban")
 
 M.servers = servers
 
