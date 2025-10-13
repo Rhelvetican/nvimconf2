@@ -56,7 +56,7 @@ return {
 
 		Language({
 			language = "Lua",
-			message = create_message("Writing very cool Lua code at "),
+			message = create_message("Writing Lua code at "),
 		})
 
 		Language({
@@ -72,6 +72,11 @@ return {
 		Language({
 			language = { "Python" },
 			message = create_message("Writing nonsensical script at "),
+		})
+
+		Language({
+			language = { "Typst" },
+			message = create_message("Writing a paper at "),
 		})
 
 		require("cord").setup({

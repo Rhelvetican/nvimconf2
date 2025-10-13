@@ -36,8 +36,5 @@ vim.notify = notify.make_notify({
 require("mini.pairs").setup({
 	mappings = {
 		["'"] = false,
-
-		["<"] = { action = "open", pair = "<>", neigh_pattern = "[^\\]." },
-		[">"] = { action = "close", pair = "<>", neigh_pattern = "[^\\]." },
 	},
 })
