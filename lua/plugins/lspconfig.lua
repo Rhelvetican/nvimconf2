@@ -8,7 +8,7 @@ return {
 		local opts = require("configs.lspconfig")
 		local lsp = require("vim.lsp")
 
-		for server, cfg in pairs(opts.servers.servers) do
+		for server, cfg in pairs(opts) do
 			lsp.config(server, cfg or {})
 			lsp.enable(server)
 		end

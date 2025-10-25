@@ -1,104 +1,69 @@
 local M = {}
 
----@class Servers
----@field servers table<string, any>
-local servers = { servers = {} }
+---@param tbl {[string]: vim.lsp.Config|table<string, any>|"default"}
+function register(tbl)
+	for server, config in pairs(tbl) do
+		local ok, cfg = pcall(require, "lspconfig.configs." .. server)
 
----@param name string
----@param config? vim.lsp.Config| table<string, any>
-function servers:register(name, config)
-	local ok, val = pcall(require, "lspconfig.configs." .. name)
-
-	if ok and type(val) ~= "string" and name ~= "register" then
-		local server_config = vim.tbl_deep_extend("keep", config or {}, val)
-		self.servers[name] = server_config
-	else
-		self.servers[name] = config or {}
+		if ok and type(cfg) == "table" then
+			if type(config) == "string" then
+				M[server] = cfg
+			else
+				M[server] = vim.tbl_deep_extend("force", cfg, config)
+			end
+		else
+			M[server] = (type(config) == "string") and {} or config
+		end
 	end
 end
 
-servers:register("emmylua_ls", {
-	cmd = { "emmylua_ls" },
-	filetypes = { "lua" },
+register({
+	basedpyright = "default",
 
-	root_markers = {
-		".luarc.json",
-		".emmyrc.json",
-		".luacheckrc",
-		".git",
+	clangd = {
+		cmd = { "clangd", "--clang-tidy", "--background-index" },
 	},
 
-	workspace_required = false,
-})
-
-servers:register("clangd", {
-	cmd = { "clangd", "--clang-tidy", "--background-index" },
-})
-
-servers:register("taplo")
-servers:register("marksman")
-servers:register("nushell")
-servers:register("jsonls")
-
-servers:register("tinymist", {
-	settings = {
-		formatterMode = "typstyle",
-		exportPdf = "onType",
-		semanticTokens = "disable",
+	denols = {
+		settings = {
+			deno = {
+				inlayHints = true,
+			},
+		},
 	},
-})
 
-servers:register("denols", {
-	settings = {
-		deno = {
-			inlayHints = {
-				parameterNames = {
-					enabled = "all",
-				},
-				parameterTypes = {
-					enabled = true,
-				},
-				variableTypes = {
-					enabled = true,
-				},
-				propertyDeclarationTypes = {
-					enabled = true,
-				},
-				functionLikeReturnTypes = {
-					enabled = true,
-				},
-				enumMemberValues = {
-					enabled = true,
-				},
+	emmylua_ls = "default",
+
+	glsl_analyzer = {
+		filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs" },
+	},
+
+	jsonls = "default",
+
+	marksman = "default",
+
+	nushell = "default",
+
+	ruff = {
+		on_attach = function(client, _)
+			client.server_capabilities.hoverProvider = false
+		end,
+	},
+
+	taplo = "default",
+
+	tinymist = "default",
+
+	zls = {
+		filetypes = { "zig", "zir", "zon" },
+		root_markers = { "zls.json", "build.zig", "build.zig.zon", ".git" },
+		settings = {
+			zls = {
+				warn_style = true,
+				semantic_tokens = "full",
 			},
 		},
 	},
 })
-
-servers:register("ruff", {
-	on_attach = function(client, _)
-		client.server_capabilities.hoverProvider = false
-	end,
-})
-
-servers:register("glsl_analyzer", {
-	filetypes = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp", "fs" },
-})
-
-servers:register("zls", {
-	cmd = { "zls" },
-	filetypes = { "zig", "zon" },
-	root_markers = { "build.zig.zon", ".git" },
-	settings = {
-		zls = {
-			warn_style = true,
-			semantic_tokens = "full",
-		},
-	},
-})
-
-servers:register("zuban")
-
-M.servers = servers
 
 return M

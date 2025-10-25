@@ -12,7 +12,8 @@ return {
 			rustfmt = {
 				inherit = true,
 				prepend_args = {
-					"--config edition=2024,style_edition=2024,max_width=256,fn_single_line=true,format_macro_matchers=true,format_strings=true,hex_literal_case=Upper,reorder_impl_items=true,struct_field_align_threshold=256",
+					"--config",
+					"edition=2024,max_width=256,fn_single_line=true,format_macro_matchers=true,format_strings=true,hex_literal_case=Upper,reorder_impl_items=true,struct_field_align_threshold=256",
 				},
 			},
 		},

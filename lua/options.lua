@@ -63,3 +63,9 @@ g.markdown_fenced_languages = {
 	"js=javascript",
 	"ts=typescript",
 }
+
+vim.filetype.add({
+	pattern = {
+		["*%.typ"] = "typst",
+	},
+})
