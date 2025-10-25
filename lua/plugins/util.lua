@@ -1,4 +1,3 @@
----@module "lazy"
 ---@type LazySpec
 return {
 	{
@@ -42,71 +41,6 @@ return {
 			require("configs.snacks")
 		end,
 	},
-
-	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		priority = 1000,
-
-		config = function()
-			vim.diagnostic.config({ virtual_text = false })
-			require("tiny-inline-diagnostic").setup({
-				preset = "ghost",
-
-				options = {
-					multilines = {
-						enabled = true,
-						always_show = true,
-					},
-				},
-			})
-		end,
-	},
-
-	{
-		"rachartier/tiny-code-action.nvim",
-		event = "LspAttach",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "folke/snacks.nvim", opts = { terminal = {} } },
-		},
-		opts = {
-			backend = "vim",
-			picker = "snacks",
-
-			backend_opts = {
-				delta = {
-					header_lines_to_remove = 4,
-					args = {
-						"--line-numbers",
-					},
-				},
-			},
-		},
-	},
-
-	{
-		"rachartier/tiny-glimmer.nvim",
-		event = "VeryLazy",
-		priority = 3,
-
-		config = function()
-			require("tiny-glimmer").setup({
-				support = {
-					overwrite = {
-						search = {
-							enabled = true,
-						},
-					},
-
-					substitute = {
-						enabled = true,
-						default_animation = "fade",
-					},
-				},
-			})
-		end,
-	},
-
 	{
 		"Mythos-404/xmake.nvim",
 		version = "^3",
@@ -123,5 +57,22 @@ return {
 		opts = {
 			open_cmd = "start %s",
 		},
+	},
+
+	{
+		"charm-and-friends/freeze.nvim",
+		config = function()
+			require("freeze").setup({
+				command = "freeze",
+				open = true,
+				output = function()
+					return "./" .. os.date("%Y-%m-%d") .. "_freeze.png"
+				end,
+				theme = "catppuccin-mocha",
+				font = {
+					ligatures = true,
+				},
+			})
+		end,
 	},
 }
