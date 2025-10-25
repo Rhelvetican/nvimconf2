@@ -124,14 +124,4 @@ return {
 			open_cmd = "start %s",
 		},
 	},
-
-	{
-		"sahaj-b/brainrot.nvim",
-		event = "VeryLazy",
-
-		opts = {
-			phonk_time = 1.0,
-			image_enabled = false,
-		},
-	},
 }
