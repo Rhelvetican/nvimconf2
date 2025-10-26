@@ -21,6 +21,7 @@ map_nvo("<leader>rn", function()
 	Snacks.input.input({
 		prompt = "Rename item to",
 		expand = true,
+		icon_hl = "SnacksInputIcon",
 	}, function(input)
 		if input then
 			vim.lsp.buf.rename(input)
@@ -28,10 +29,10 @@ map_nvo("<leader>rn", function()
 	end)
 end)
 
-local gitui = require("gitui")
-gitui.setup()
+local lazygit = require("lazygit")
+lazygit.setup()
 
-map_nvo("gt", gitui.toggle)
+map_nvo("lg", lazygit.toggle)
 
 map_nvo("<leader>fg", Snacks.picker.grep)
 map({ "n" }, "<C-k>", vim.lsp.buf.hover)
