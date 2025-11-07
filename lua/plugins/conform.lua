@@ -21,7 +21,9 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 
-			python = { "ruff_fix", "ruff_format", "ruff_organize_import" },
+			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+
+			typst = { "typstyle" },
 
 			rust = { "rustfmt", lsp_format = "fallback" },
 			toml = { "taplo", lsp_format = "fallback" },

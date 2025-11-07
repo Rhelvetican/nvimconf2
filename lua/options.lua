@@ -2,6 +2,12 @@ local o = vim.o
 local g = vim.g
 local wo = vim.wo
 
+vim.filetype.add({
+	pattern = {
+		["*%.typ"] = "typst",
+	},
+})
+
 vim.diagnostic.config({
 	virtual_text = true,
 	update_in_insert = true,
@@ -63,9 +69,3 @@ g.markdown_fenced_languages = {
 	"js=javascript",
 	"ts=typescript",
 }
-
-vim.filetype.add({
-	pattern = {
-		["*%.typ"] = "typst",
-	},
-})

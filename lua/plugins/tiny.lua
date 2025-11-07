@@ -48,17 +48,12 @@ return {
 
 		config = function()
 			require("tiny-glimmer").setup({
-				support = {
-					overwrite = {
-						search = {
-							enabled = true,
-						},
-					},
+				enable = true,
+				disable_warnings = true,
 
-					substitute = {
-						enabled = true,
-						default_animation = "fade",
-					},
+				hijack_ft_disabled = {
+					"alpha",
+					"snacks_dashboard",
 				},
 			})
 		end,

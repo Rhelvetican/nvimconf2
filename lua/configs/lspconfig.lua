@@ -75,7 +75,9 @@ register({
 
 	taplo = "default",
 
-	tinymist = "default",
+	tinymist = {
+		filetypes = { "typst", "typ" },
+	},
 
 	zls = {
 		filetypes = { "zig", "zir", "zon" },
