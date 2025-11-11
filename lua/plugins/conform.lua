@@ -6,7 +6,9 @@ return {
 		formatters = {
 			["clang-format"] = {
 				inherit = true,
-				prepend_args = { "-style={BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 256}" },
+				prepend_args = {
+					"-style={BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 256, AlignConsecutiveAssignments: true, AccessModifierOffset: 4}",
+				},
 			},
 
 			rustfmt = {
@@ -21,7 +23,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 
-			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+			python = { "ruff_format", "ruff_fix", "ruff_organize_imports" },
 
 			typst = { "typstyle" },
 
