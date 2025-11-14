@@ -88,7 +88,7 @@ return {
 				output = function()
 					return "./" .. os.date("%Y-%m-%d") .. "_freeze.png"
 				end,
-				theme = "catppuccin-mocha",
+				theme = "tokyonight-night",
 				font = {
 					ligatures = true,
 				},
