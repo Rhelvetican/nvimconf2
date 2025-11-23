@@ -1,46 +1,3 @@
-local lazydev = {
-	"folke/lazydev.nvim",
-	ft = "lua",
-	priority = 9999,
-
-	dependencies = {
-		{
-			"DrKJeff16/wezterm-types",
-			lazy = true,
-			version = false,
-		},
-	},
-
-	config = function()
-		require("lazydev").setup({
-			library = {
-				"lazy.nvim",
-				{ path = vim.env.VIMRUNTIME, words = { "vim" } },
-				{ path = "wezterm-types", mods = { "wezterm" } },
-			},
-		})
-	end,
-}
-
----@generic T
----@generic U
----@param tbl T[]|{ [T]: U }|{ [U]: T }
----@param item T
----@return boolean
-function table.contains(tbl, item)
-	if tbl[item] ~= nil then
-		return true
-	end
-
-	for _, val in pairs(tbl) do
-		if val == item then
-			return true
-		end
-	end
-
-	return false
-end
-
 return {
 	"saghen/blink.cmp",
 
@@ -48,7 +5,6 @@ return {
 		"saghen/blink.compat",
 		{ "rafamadriz/friendly-snippets", event = "BufEnter" },
 		{ "mikavilpas/blink-ripgrep.nvim", version = "*" },
-		lazydev,
 	},
 
 	version = "1.*",
@@ -60,7 +16,7 @@ return {
 		},
 
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline", "ripgrep" },
+			default = { "lsp", "path", "snippets", "buffer", "cmdline", "ripgrep" },
 			min_keyword_length = 1,
 
 			providers = {
@@ -73,6 +29,7 @@ return {
 				ripgrep = {
 					name = "Ripgrep",
 					module = "blink-ripgrep",
+					score_offset = -100,
 
 					---@type blink-ripgrep.Options
 					opts = {
@@ -135,7 +92,32 @@ return {
 				draw = {
 					columns = {
 						{ "label", "label_description", gap = 1 },
-						{ "kind" },
+						{ "kind_icon", "kind" },
+					},
+
+					components = {
+						label = {
+							---@param ctx blink.cmp.DrawItemContext
+							text = function(ctx)
+								return string.gsub(ctx.label, "…", "...") .. ctx.label_detail
+							end,
+						},
+						kind_icon = {
+							text = function(ctx)
+								local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+								return kind_icon
+							end,
+							highlight = function(ctx)
+								local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+								return hl
+							end,
+						},
+						kind = {
+							highlight = function(ctx)
+								local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+								return hl
+							end,
+						},
 					},
 				},
 			},

@@ -6,4 +6,8 @@ return {
 		priority = 1000,
 		config = function() end,
 	},
+
+	{
+		"sainnhe/everforest",
+	},
 }

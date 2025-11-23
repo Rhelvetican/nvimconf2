@@ -3,7 +3,14 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		event = "BufReadPre",
-		opts = require("configs.bufferline"),
+		opts = {
+			options = {
+				themable = true,
+				offsets = {
+					{ filetype = "NvimTree", highlight = "NvimTreeNormal" },
+				},
+			},
+		},
 	},
 
 	{
@@ -77,22 +84,5 @@ return {
 		opts = {
 			open_cmd = "start %s",
 		},
-	},
-
-	{
-		"charm-and-friends/freeze.nvim",
-		config = function()
-			require("freeze").setup({
-				command = "freeze",
-				open = true,
-				output = function()
-					return "./" .. os.date("%Y-%m-%d") .. "_freeze.png"
-				end,
-				theme = "tokyonight-night",
-				font = {
-					ligatures = true,
-				},
-			})
-		end,
 	},
 }
