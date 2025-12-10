@@ -82,6 +82,10 @@ return {
 		version = "1.*",
 
 		opts = {
+			dependencies_bin = {
+				tinymist = "tinymist",
+			},
+
 			open_cmd = "start %s",
 		},
 	},

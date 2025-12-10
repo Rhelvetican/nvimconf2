@@ -1,4 +1,5 @@
 vim.g.rustaceanvim = function()
+	---@type rustaceanvim.Config
 	return {
 		server = {
 			on_attach = function(_, _)
@@ -26,6 +27,12 @@ vim.g.rustaceanvim = function()
 				map_rustlsp_b("<leader>db!", "debuggables")
 				map_rustlsp("<leader>rr", "runnables")
 				map_rustlsp_b("<leader>rr!", "debuggables")
+			end,
+
+			settings = function(_, cfg)
+				local config = cfg or {}
+				config.check = config.check or {}
+				config.check.extraArgs = { "-W", "clippy::pedantic" }
 			end,
 		},
 	}

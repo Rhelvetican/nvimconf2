@@ -92,14 +92,14 @@ return {
 				draw = {
 					columns = {
 						{ "label", "label_description", gap = 1 },
-						{ "kind_icon", "kind" },
+						{ "kind" },
 					},
 
 					components = {
 						label = {
 							---@param ctx blink.cmp.DrawItemContext
 							text = function(ctx)
-								return string.gsub(ctx.label, "…", "...") .. ctx.label_detail
+								return string.gsub(ctx.label, "… ", "…") .. ctx.label_detail
 							end,
 						},
 						kind_icon = {
