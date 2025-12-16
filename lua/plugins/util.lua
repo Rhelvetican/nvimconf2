@@ -105,8 +105,13 @@ return {
 		opts = {
 			views = {
 				finder = {
+					confirm_simple = true,
 					default_explorer = true,
 					win = {
+						buf_opts = {
+							shiftwidth = 4,
+						},
+
 						kinds = {
 							split_left_most = {
 								width = "15%",

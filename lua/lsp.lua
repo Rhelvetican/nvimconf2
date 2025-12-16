@@ -1,16 +1,16 @@
 ---@type string[]
 local lsps = {
-	"basedpyright",
 	"clangd",
 	"denols",
-	"emmylua_ls",
+	-- "emmylua_ls",
+	"lua_ls",
 	"glsl_analyzer",
 	"jsonls",
-	"marksman",
 	"nushell",
 	"ruff",
 	"taplo",
 	"tinymist",
+	"ty",
 	"zls",
 }
 
