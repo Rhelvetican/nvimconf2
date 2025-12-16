@@ -89,4 +89,42 @@ return {
 			open_cmd = "start %s",
 		},
 	},
+
+	{
+		"esmuellert/vscode-diff.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		cmd = "CodeDiff",
+	},
+
+	{
+		"A7Lavinraj/fyler.nvim",
+		dependencies = { "nvim-mini/mini.icons" },
+		branch = "stable",
+		lazy = false,
+
+		opts = {
+			views = {
+				finder = {
+					default_explorer = true,
+					win = {
+						kinds = {
+							split_left_most = {
+								width = "15%",
+							},
+						},
+					},
+				},
+			},
+		},
+
+		keys = {
+			{
+				"<C-f>",
+				function()
+					require("fyler").open({ kind = "split_left_most" })
+				end,
+				desc = "Open Fyler View",
+			},
+		},
+	},
 }
