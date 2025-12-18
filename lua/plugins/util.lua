@@ -69,14 +69,6 @@ return {
 	},
 
 	{
-		"Mythos-404/xmake.nvim",
-		version = "^3",
-		lazy = true,
-		event = "BufReadPost",
-		config = true,
-	},
-
-	{
 		"chomosuke/typst-preview.nvim",
 		ft = "typst",
 		version = "1.*",
