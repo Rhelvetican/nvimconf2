@@ -87,41 +87,4 @@ return {
 		dependencies = { "MunifTanjim/nui.nvim" },
 		cmd = "CodeDiff",
 	},
-
-	{
-		"A7Lavinraj/fyler.nvim",
-		dependencies = { "nvim-mini/mini.icons" },
-		branch = "stable",
-		lazy = false,
-
-		opts = {
-			views = {
-				finder = {
-					confirm_simple = true,
-					default_explorer = true,
-					win = {
-						buf_opts = {
-							shiftwidth = 4,
-						},
-
-						kinds = {
-							split_left_most = {
-								width = "15%",
-							},
-						},
-					},
-				},
-			},
-		},
-
-		keys = {
-			{
-				"<C-f>",
-				function()
-					require("fyler").open({ kind = "split_left_most" })
-				end,
-				desc = "Open Fyler View",
-			},
-		},
-	},
 }

@@ -36,3 +36,7 @@ map_nvo("lg", lazygit.toggle)
 
 map_nvo("<leader>fg", Snacks.picker.grep)
 map({ "n" }, "<C-k>", vim.lsp.buf.hover)
+
+map({ "n" }, "<C-f>", function()
+	MiniFiles.open()
+end)

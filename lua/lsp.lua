@@ -2,8 +2,7 @@
 local lsps = {
 	"clangd",
 	"denols",
-	--"emmylua_ls",
-	"lua_ls",
+	"emmylua_ls",
 	"glsl_analyzer",
 	"jsonls",
 	"nushell",

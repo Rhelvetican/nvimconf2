@@ -11,14 +11,14 @@ require("mini.statusline").setup({})
 
 require("mini.colors").setup({})
 
--- require("mini.files").setup({
--- 	mappings = {
--- 		go_in = "]",
--- 		go_in_plus = "<C-]>",
--- 		go_out = "[",
--- 		go_out_plus = "<C-[>",
--- 	},
--- })
+require("mini.files").setup({
+	mappings = {
+		go_in = "]",
+		go_in_plus = "<C-]>",
+		go_out = "[",
+		go_out_plus = "<C-[>",
+	},
+})
 
 local notify = require("mini.notify")
 notify.setup({})
