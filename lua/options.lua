@@ -23,6 +23,9 @@ o.background = "dark"
 o.laststatus = 3
 o.showmode = false
 
+-- o.t_SI = "\\e[5 q"
+-- o.t_EI = "\\e[1 q"
+
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 o.clipboard = "unnamedplus"
 

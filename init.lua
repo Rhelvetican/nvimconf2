@@ -3,4 +3,4 @@ require("lazypkg")
 require("mappings")
 require("lsp")
 
-vim.cmd([[colorscheme everforest]])
+vim.cmd([[colorscheme oasis]])

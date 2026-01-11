@@ -3,16 +3,23 @@ local lsps = {
 	"clangd",
 	"denols",
 	"emmylua_ls",
-	"glsl_analyzer",
+	"jdtls",
 	"jsonls",
 	"nushell",
 	"ruff",
 	"taplo",
 	"tinymist",
 	"ty",
-	"zls",
 }
 
+local config, enable = vim.lsp.config, vim.lsp.enable
 for _, server in ipairs(lsps) do
-	vim.lsp.enable(server)
+	local ok, res = pcall(require, string.format("lsp.%s", server))
+
+	if ok then
+		---@diagnostic disable-next-line: undefined-field
+		config(server, vim.tbl_deep_extend("force", config[server] or {}, res))
+	end
+
+	enable(server)
 end

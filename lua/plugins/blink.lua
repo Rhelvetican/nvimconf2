@@ -3,6 +3,7 @@ return {
 
 	dependencies = {
 		"saghen/blink.compat",
+		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 		{ "rafamadriz/friendly-snippets", event = "BufEnter" },
 		{ "mikavilpas/blink-ripgrep.nvim", version = "*" },
 	},

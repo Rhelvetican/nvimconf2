@@ -40,3 +40,7 @@ map({ "n" }, "<C-k>", vim.lsp.buf.hover)
 map({ "n" }, "<C-f>", function()
 	MiniFiles.open()
 end)
+
+vim.api.nvim_create_user_command("OpenConfig", function()
+	Snacks.picker.files({ pwd = vim.fn.stdpath("config") })
+end, {})
