@@ -6,7 +6,9 @@ end)
 return {
 	filetypes = { "typst", "typ" },
 	single_file_support = true,
+
 	settings = {
 		formatterMode = "typstyle",
+		formatterPrintWidth = 196,
 	},
 }

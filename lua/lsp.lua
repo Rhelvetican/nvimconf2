@@ -2,7 +2,7 @@
 local lsps = {
 	"clangd",
 	"denols",
-	"emmylua_ls",
+	"lua_ls",
 	"jdtls",
 	"jsonls",
 	"nushell",
@@ -10,6 +10,7 @@ local lsps = {
 	"taplo",
 	"tinymist",
 	"ty",
+	"zls",
 }
 
 local config, enable = vim.lsp.config, vim.lsp.enable
