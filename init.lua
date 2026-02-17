@@ -3,4 +3,4 @@ require("lazypkg")
 require("mappings")
 require("lsp")
 
-vim.cmd([[colorscheme retro-fallout]])
+vim.cmd([[colorscheme oasis-abyss]])

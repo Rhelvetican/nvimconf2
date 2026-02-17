@@ -2,10 +2,11 @@
 local lsps = {
 	"clangd",
 	"denols",
-	"lua_ls",
+	"harper_ls",
 	"jdtls",
 	"jsonls",
 	"nushell",
+	"lua_ls",
 	"ruff",
 	"taplo",
 	"tinymist",
