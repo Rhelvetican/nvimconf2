@@ -2,7 +2,7 @@
 local lsps = {
 	"clangd",
 	"denols",
-	"harper_ls",
+	--"harper_ls",
 	"jdtls",
 	"jsonls",
 	"nushell",

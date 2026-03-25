@@ -42,5 +42,5 @@ map({ "n" }, "<C-f>", function()
 end)
 
 vim.api.nvim_create_user_command("OpenConfig", function()
-	Snacks.picker.files({ pwd = vim.fn.stdpath("config") })
+	Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 end, {})
