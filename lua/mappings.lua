@@ -1,5 +1,13 @@
 local map = vim.keymap.set
 
+if not Snacks then
+	require("snacks")
+end
+
+if not MiniFiles then
+	require("mini.files")
+end
+
 ---@param keybind string
 ---@param command string|fun()
 local function map_nvo(keybind, command)
@@ -11,6 +19,10 @@ map_nvo("<C-c>", "<cmd>%y+<CR>")
 map_nvo("d<leader>", "<cmd>%d+<CR>")
 map_nvo("tt", function()
 	Snacks.terminal.toggle({ "nu" }, {})
+end)
+
+map_nvo("<leader>il", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end)
 
 map("n", "<leader>ca", function()

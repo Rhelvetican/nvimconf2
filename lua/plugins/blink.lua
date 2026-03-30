@@ -3,9 +3,16 @@ return {
 
 	dependencies = {
 		"saghen/blink.compat",
-		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 		{ "rafamadriz/friendly-snippets", event = "BufEnter" },
 		{ "mikavilpas/blink-ripgrep.nvim", version = "*" },
+
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = {
+				library = { "lazy.nvim", "blink.cmp" },
+			},
+		},
 	},
 
 	version = "1.*",
@@ -17,7 +24,7 @@ return {
 		},
 
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "cmdline", "ripgrep" },
+			default = { "lsp", "lazydev", "path", "snippets", "buffer", "cmdline", "ripgrep" },
 			min_keyword_length = 1,
 
 			providers = {

@@ -16,8 +16,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
-vim.lsp.inlay_hint.enable(true)
-
 o.background = "dark"
 
 o.laststatus = 3
@@ -72,3 +70,9 @@ g.markdown_fenced_languages = {
 	"js=javascript",
 	"ts=typescript",
 }
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function()
+		vim.lsp.inlay_hint.enable()
+	end,
+})

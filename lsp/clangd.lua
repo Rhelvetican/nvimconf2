@@ -9,7 +9,7 @@ return {
 		"--fallback-style=llvm",
 	},
 
-	filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda" },
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 
 	root_markers = {
 		"compile_commands.json",

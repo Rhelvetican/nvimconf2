@@ -4,7 +4,7 @@ vim.keymap.set("n", "<leader>tP", function()
 end)
 
 return {
-	filetypes = { "typst", "typ" },
+	filetypes = { "typst" },
 	single_file_support = true,
 
 	settings = {
