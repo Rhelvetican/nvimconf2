@@ -71,7 +71,7 @@ g.markdown_fenced_languages = {
 	"ts=typescript",
 }
 
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd({ "LspAttach", "BufEnter", "TextChanged" }, {
 	callback = function()
 		vim.lsp.inlay_hint.enable()
 	end,
