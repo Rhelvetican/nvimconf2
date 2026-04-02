@@ -2,12 +2,6 @@ local o = vim.o
 local g = vim.g
 local wo = vim.wo
 
-vim.filetype.add({
-	pattern = {
-		["*%.typ"] = "typst",
-	},
-})
-
 vim.diagnostic.config({
 	virtual_text = true,
 	update_in_insert = true,
@@ -57,6 +51,7 @@ o.cursorline = true
 
 wo.relativenumber = true
 
+g.mapleader = ","
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0

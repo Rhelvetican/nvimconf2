@@ -1,59 +1,48 @@
-return {
-	{
-		"saecki/crates.nvim",
-		event = { "BufRead Cargo.toml", "BufRead cargo.toml" },
-		dependencies = {
-			"nvimtools/none-ls.nvim",
-		},
-		config = function()
-			require("crates").setup({
-				lsp = {
-					enabled = true,
-					actions = true,
-					completion = true,
-					hover = true,
-				},
-				completion = {
-					crates = {
-						enabled = true,
-						max_results = 8,
-					},
-				},
-				autoload = true,
-				autoupdate = true,
-			})
-		end,
-	},
+vim.pack.add({
+	"https://github.com/rust-lang/rust.vim",
+	{ src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("8.*") },
+})
 
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^7",
-		lazy = false,
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.rs" },
+	callback = function()
+		vim.pack.add({
+			{ src = "https://github.com/nvim-neotest/nvim-nio", name = "nio" },
+			"https://github.com/nvim-lua/plenary.nvim",
+			"https://github.com/antoinemadec/FixCursorHold.nvim",
+			"https://github.com/nvim-neotest/neotest",
+		})
 
-		dependencies = {
-			"rust-lang/rust.vim",
-		},
+		vim.g.rustaceanvim = {}
 
-		ft = { "rust" },
+		require("nio")
+		require("plenary")
+		require("neotest").setup({ adapters = { ["rustaceanvim.neotest"] = {} } })
+	end,
+})
 
-		config = function()
-			require("configs.rustaceanvim")
-		end,
-	},
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "Cargo.*", "cargo.*" },
+	callback = function()
+		vim.pack.add({
+			"https://github.com/saecki/crates.nvim",
+		})
 
-	{
-		"nvim-neotest/neotest",
-		dependencies = {
-			"nvim-neotest/nvim-nio",
-			"nvim-lua/plenary.nvim",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-
-		opts = {
-			adapters = {
-				["rustaceanvim.neotest"] = {},
+		require("crates").setup({
+			lsp = {
+				enabled = true,
+				actions = true,
+				completion = true,
+				hover = true,
 			},
-		},
-	},
-}
+			completion = {
+				crates = {
+					enabled = true,
+					max_results = 8,
+				},
+			},
+			autoload = true,
+			autoupdate = true,
+		})
+	end,
+})

@@ -23,4 +23,7 @@ return {
 			},
 		},
 	},
+
+	cmd = { "deno", "lsp" },
+	cmd_env = { NO_COLOR = true },
 }

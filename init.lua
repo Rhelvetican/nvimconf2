@@ -1,6 +1,7 @@
-require("options")
-require("lazypkg")
-require("mappings")
-require("lsp")
+require("plugins")
+require("lspcfg")
+require("option")
+require("command")
+require("keymap")
 
 vim.cmd([[colorscheme tokyonight]])

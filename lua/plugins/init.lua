@@ -1,0 +1,6 @@
+require("plugins.core")
+require("plugins.utils")
+require("plugins.rust")
+require("plugins.themes")
+require("plugins.cord")
+require("plugins.conform")
