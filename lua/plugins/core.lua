@@ -1,5 +1,4 @@
 vim.pack.add({
-	{ src = "https://github.com/neovim/nvim-lspconfig", name = "lspconfig" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-context", name = "treesitter-context" },
 })

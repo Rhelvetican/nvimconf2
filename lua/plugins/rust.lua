@@ -1,6 +1,6 @@
 vim.pack.add({
 	"https://github.com/rust-lang/rust.vim",
-	{ src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("8.*") },
+	{ src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("9.*") },
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
