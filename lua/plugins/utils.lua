@@ -6,7 +6,7 @@ vim.pack.add({
     "https://github.com/folke/snacks.nvim",
     "https://github.com/rachartier/tiny-glimmer.nvim",
     "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
-    { src = "https://github.com/dmtrKovalenko/fff.nvim", version = vim.version.range("*") }
+
 })
 
 require("config.mini")
@@ -38,6 +38,15 @@ require("tiny-inline-diagnostic").setup({
             always_show = true,
         },
     },
+})
+
+
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    once = true,
+    callback = function()
+        vim.pack.add({ { src = "https://github.com/dmtrKovalenko/fff.nvim", version = vim.version.range("*") } })
+    end,
 })
 
 vim.api.nvim_create_autocmd('PackChanged', {
