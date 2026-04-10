@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
             },
 
             formatters_by_ft = {
-                lua = { lsp_format = "prefer" },
+                lua = { "stylua", lsp_format = "fallback" },
 
                 python = { "ruff_format", "ruff_fix", "ruff_organize_imports" },
 
