@@ -41,14 +41,17 @@ map_nvo("<leader>cs", Snacks.picker.colorschemes, { desc = "Choosing colorscheme
 map("n", "<C-k>", vim.lsp.buf.hover)
 map("n", "<C-f>", MiniFiles.open)
 
-vim.api.nvim_create_autocmd({ "DirChanged", "DirChangedPre", "BufEnter" }, {
-	once = true,
-	callback = function(_)
-		map("n", "ff", function()
-			require("fff").find_files({ grep = { modes = { "fuzzy", "regex", "plain" } } })
-		end, { desc = "FFFind files" })
-		map("n", "fg", function()
-			require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
-		end, { desc = "FFFLivegrep" })
-	end,
-})
+map("n", "ff", function()
+	if not _G.FFF then
+		LOAD_FFF()
+	end
+
+	require("fff").find_files({ grep = { modes = { "fuzzy", "regex", "plain" } } })
+end, { desc = "FFFind files" })
+map("n", "fg", function()
+	if not _G.FFF then
+		LOAD_FFF()
+	end
+
+	require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
+end, { desc = "FFFLivegrep" })

@@ -9,6 +9,21 @@ vim.pack.add({
 	{ src = "https://github.com/goolord/alpha-nvim", name = "alpha" },
 })
 
+_G.LOAD_FFF = function(_)
+	if not _G.FFF then
+		vim.pack.add({ { src = "https://github.com/dmtrKovalenko/fff.nvim", version = vim.version.range("*") } })
+		require("fff").setup({
+			lazy_sync = true,
+			grep = {
+				modes = { "regex", "fuzzy", "plain" },
+				trim_whitespace = true,
+			},
+		})
+
+		_G.FFF = true
+	end
+end
+
 require("config.mini")
 
 require("bufferline").setup({
@@ -20,7 +35,7 @@ require("bufferline").setup({
 	},
 })
 
-require("alpha").setup(require("alpha.themes.dashboard").config)
+require("alpha").setup(require("config.alpha"))
 
 require("snacks").setup({
 	input = {},
@@ -42,12 +57,9 @@ require("tiny-inline-diagnostic").setup({
 	},
 })
 
-vim.api.nvim_create_autocmd({ "DirChanged", "DirChangedPre", "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "DirChanged", "DirChangedPre" }, {
 	once = true,
-	callback = function(_)
-		vim.pack.add({ { src = "https://github.com/dmtrKovalenko/fff.nvim", version = vim.version.range("*") } })
-		require("fff").setup({ grep = { modes = { "regex", "fuzzy", "plain" } } })
-	end,
+	callback = LOAD_FFF,
 })
 
 vim.api.nvim_create_autocmd("PackChanged", {

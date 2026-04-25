@@ -4,4 +4,4 @@ require("option")
 require("command")
 require("keymap")
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme gruvbox]])
