@@ -1,6 +1,6 @@
+require("option")
 require("plugins")
 require("lspcfg")
-require("option")
 require("command")
 require("keymap")
 

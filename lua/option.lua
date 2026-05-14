@@ -10,6 +10,9 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
+vim.printLib = require("utils")
+vim.cfpath = vim.fn.stdpath("config")
+
 o.background = "dark"
 
 o.laststatus = 3

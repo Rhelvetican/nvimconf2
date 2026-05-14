@@ -1,6 +1,7 @@
 vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-context", name = "treesitter-context" },
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
 require("plugins.blink")

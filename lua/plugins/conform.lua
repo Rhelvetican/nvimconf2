@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 				typst = { "typstyle" },
 
 				rust = { "rustfmt", lsp_format = "fallback" },
-				toml = { "taplo", lsp_format = "fallback" },
+				toml = { "tombi", lsp_format = "fallback" },
 				zig = { "zigfmt", lsp_format = "fallback" },
 
 				typescript = { "deno_fmt", lsp_format = "fallback" },

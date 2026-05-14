@@ -1,4 +1,3 @@
 return {
-	cmd = { "taplo", "--config", "~/.config/taplo.toml", "lsp", "stdio" },
-	filetypes = { "toml" },
+	cmd = { "taplo", "lsp", "--config", vim.env["TAPLO_CONFIG"] or "~/.config/taplo.toml", "stdio" },
 }
