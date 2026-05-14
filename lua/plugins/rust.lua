@@ -24,32 +24,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		require("neotest").setup({ adapters = { ["rustaceanvim.neotest"] = {} } })
 	end,
 })
-
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "Cargo.toml", "cargo.toml" },
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/saecki/crates.nvim",
-		})
-
-		require("crates").setup({
-			lsp = {
-				enabled = true,
-				actions = true,
-				completion = true,
-				hover = true,
-			},
-
-			completion = {
-				crates = {
-					enabled = true,
-					max_results = 8,
-				},
-			},
-
-			autoload = true,
-			autoupdate = true,
-		})
-	end,
-})
