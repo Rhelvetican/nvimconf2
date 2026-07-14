@@ -20,6 +20,10 @@ createUserCmd("PackList", function(args)
 	end
 end, {})
 
+createUserCmd("Notifications", function(_)
+	MiniNotify.show_history()
+end, {})
+
 createUserCmd("OpenConfig", function(_)
 	Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 end, {})

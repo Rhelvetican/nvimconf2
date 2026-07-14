@@ -13,13 +13,25 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.lua" },
 	callback = function()
 		vim.pack.add({ "https://github.com/folke/lazydev.nvim" })
+
 		require("lazydev").setup({
 			library = {
 				"vim.pack",
 				"blink.cmp",
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
+
+			runtime = "LuaJIT",
+
+			debug = false,
+
+			integrations = {},
+
+			enabled = function(_)
+				return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
+			end,
 		})
+
 		lazydev_loaded = true
 	end,
 })

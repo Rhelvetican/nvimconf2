@@ -18,4 +18,18 @@ require("gruvbox").setup({
 
 require("catppuccin").setup({
 	flavor = "mocha",
+
+	no_underline = true,
+
+	styles = {
+		functions = { "italic", "bold" },
+		keywords = { "italic" },
+	},
+
+	lsp_styles = {
+		underlines = {
+			errors = { "undercurl" },
+			warnings = { "undercurl" },
+		},
+	},
 })

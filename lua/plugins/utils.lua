@@ -12,6 +12,7 @@ vim.pack.add({
 _G.LOAD_FFF = function(_)
 	if not _G.FFF then
 		vim.pack.add({ { src = "https://github.com/dmtrKovalenko/fff.nvim", version = vim.version.range("*") } })
+
 		require("fff").setup({
 			lazy_sync = true,
 			grep = {
@@ -108,9 +109,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			backend_opts = {
 				delta = {
 					header_lines_to_remove = 4,
-					args = {
-						"--line-numbers",
-					},
+					args = { "--line-numbers" },
 				},
 			},
 		})
