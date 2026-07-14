@@ -4,4 +4,4 @@ require("lspcfg")
 require("command")
 require("keymap")
 
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme catppuccin]])

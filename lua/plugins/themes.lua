@@ -1,6 +1,7 @@
 vim.pack.add({
 	"https://www.github.com/folke/tokyonight.nvim",
-	"https://github.com/ellisonleao/gruvbox.nvim",
+	"https://www.github.com/ellisonleao/gruvbox.nvim",
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
 require("tokyonight").setup({
@@ -13,4 +14,8 @@ require("tokyonight").setup({
 
 require("gruvbox").setup({
 	overrides = {},
+})
+
+require("catppuccin").setup({
+	flavor = "mocha",
 })
