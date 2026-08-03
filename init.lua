@@ -4,4 +4,4 @@ require("lspcfg")
 require("command")
 require("keymap")
 
-require("themes.pierre")
+vim.cmd([[colorscheme tokyonight]])
