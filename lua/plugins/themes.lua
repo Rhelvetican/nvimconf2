@@ -6,9 +6,16 @@ vim.pack.add({
 
 require("tokyonight").setup({
 	style = "moon",
-	on_colors = function(_) end,
+
+	lualine_bold = true,
+
 	on_highlights = function(highlights, colors)
+		highlights["Special"] = { fg = colors.blue5 }
+		highlights["Identifier"] = vim.tbl_deep_extend("force", highlights["Identifier"], { bold = true })
+		highlights["Function"] = vim.tbl_deep_extend("force", highlights["Function"], { bold = true })
+
 		highlights["@punctuation.bracket"] = { fg = colors.blue5 }
+		highlights["@keyword"] = vim.tbl_deep_extend("force", highlights["@keyword"], { bold = true })
 	end,
 })
 
