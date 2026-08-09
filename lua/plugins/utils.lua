@@ -9,6 +9,7 @@ vim.pack.add({
 	{ src = "https://github.com/goolord/alpha-nvim", name = "alpha" },
 })
 
+_G.FFF = false
 _G.LOAD_FFF = function(_)
 	if not _G.FFF then
 		vim.pack.add({ { src = "https://github.com/dmtrKovalenko/fff.nvim", version = vim.version.range("*") } })

@@ -42,16 +42,10 @@ map("n", "<C-k>", vim.lsp.buf.hover)
 map("n", "<C-f>", MiniFiles.open)
 
 map("n", "ff", function()
-	if not _G.FFF then
-		LOAD_FFF()
-	end
-
+	_G.LOAD_FFF()
 	require("fff").find_files({ grep = { modes = { "fuzzy", "regex", "plain" } } })
 end, { desc = "FFFind files" })
 map("n", "fg", function()
-	if not _G.FFF then
-		LOAD_FFF()
-	end
-
+	_G.LOAD_FFF()
 	require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
 end, { desc = "FFFLivegrep" })

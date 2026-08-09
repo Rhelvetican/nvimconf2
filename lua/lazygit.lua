@@ -1,17 +1,16 @@
----@module "lazygit"
-local M = {}
-
 ---@class LazyGitConfiguration
 ---@field binary string
 ---@field args? string[]
 
----@type LazyGitConfiguration
-M.config = {
-	binary = "lazygit",
-}
+local M = {
+	---@type LazyGitConfiguration
+	config = {
+		binary = "lazygit",
+	},
 
----@type string[]?
-M.cmd = nil
+	---@type string[]?
+	cmd = nil,
+}
 
 ---@param opts? LazyGitConfiguration
 function M.setup(opts)
@@ -36,14 +35,11 @@ function M.command()
 end
 
 function M.toggle()
-	Snacks.terminal.toggle(
-		M.command(),
-		{ win = {
-			relative = "editor",
-			position = "float",
-			border = "rounded",
-		} }
-	)
+	Snacks.terminal.toggle(M.command(), { win = {
+		relative = "editor",
+		position = "float",
+		border = "rounded",
+	} })
 end
 
 return M

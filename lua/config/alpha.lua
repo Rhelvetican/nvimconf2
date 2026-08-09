@@ -1,5 +1,14 @@
 local dashboard = require("alpha.themes.dashboard")
 
+local find_text = [[
+if _G.FFF then
+	require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
+else
+	_G.LOAD_FFF()
+	require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
+end
+]]
+
 dashboard.section.header.val = {
 	"                                 ",
 	"  ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆         ",
@@ -15,21 +24,12 @@ dashboard.section.header.val = {
 	"      ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃    ",
 	"                                 ",
 }
+
+---@diagnostic disable-next-line: assign-type-mismatch
 dashboard.section.buttons.val = {
 	dashboard.button("f", " " .. " Find file", "<cmd> lua Snacks.picker.files() <cr>"),
 	dashboard.button("n", " " .. " New file", "<cmd> ene <BAR> startinsert <cr>"),
-	dashboard.button(
-		"g",
-		" " .. " Find text",
-		[[
-if _G.FFF then
-	require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
-else
-	_G.LOAD_FFF()
-	Snacks.picker.grep()
-end
-        ]]
-	),
+	dashboard.button("g", " " .. " Find text", find_text),
 	dashboard.button("c", " " .. " Config", "<cmd> OpenConfig <cr>"),
 	dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
 }
