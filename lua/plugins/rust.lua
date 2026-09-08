@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		require("nio")
 		require("plenary")
 
-		---@diagnostic disable-next-line: missing-fields
+		---@diagnostic disable-next-line: param-type-mismatch, missing-fields
 		require("neotest").setup({ adapters = { ["rustaceanvim.neotest"] = {} } })
 	end,
 })

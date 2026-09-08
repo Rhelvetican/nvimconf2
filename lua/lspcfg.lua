@@ -1,4 +1,3 @@
----@type string[]
 local lsps = {
 	"clangd",
 	"denols",

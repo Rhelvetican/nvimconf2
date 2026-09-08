@@ -23,19 +23,12 @@ local Language = setmetatable({}, {
 
 ---@param s string
 ---@return fun(o: CordOpts): string
-local function create_message(s)
+local function createMessage(s)
 	---@param o CordOpts
 	return function(o)
 		local diagnostics = o.diagnostics(o)
 
-		return string.format(
-			"%s %s (Line %d) %s",
-			s,
-			o.filename,
-			o.cursor_line,
-			(diagnostics > 0) and string.format("(%d %s)", diagnostics, (diagnostics < 2) and "Problem" or "Problems")
-				or ""
-		)
+		return string.format("%s %s (Line %d) %s", s, o.filename, o.cursor_line, (diagnostics > 0) and string.format("(%d %s)", diagnostics, (diagnostics < 2) and "Problem" or "Problems") or "")
 	end
 end
 
@@ -54,37 +47,37 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 Language({
 	language = "Rust",
-	message = create_message("Oxidizing at "),
+	message = createMessage("Oxidizing at "),
 })
 
 Language({
 	language = "Zig",
-	message = create_message("Being a Zigger at "),
+	message = createMessage("Being a Zigger at "),
 })
 
 Language({
 	language = "Lua",
-	message = create_message("Writing Lua code at "),
+	message = createMessage("Writing Lua code at "),
 })
 
 Language({
 	language = { "C", "C++", "Cpp", "H", "H++", "Hpp" },
-	message = create_message("Being oldschool at "),
+	message = createMessage("Being oldschool at "),
 })
 
 Language({
 	language = { "JavaScript", "TypeScript", "JS", "TS" },
-	message = create_message("This is Hell, and it's at "),
+	message = createMessage("This is Hell, and it's at "),
 })
 
 Language({
 	language = { "Python" },
-	message = create_message("Writing nonsensical script at "),
+	message = createMessage("Writing nonsensical script at "),
 })
 
 Language({
 	language = { "Typst" },
-	message = create_message("Writing a paper at "),
+	message = createMessage("Writing a paper at "),
 })
 
 require("cord").setup({
@@ -107,24 +100,13 @@ require("cord").setup({
 				return Languages[o.filetype](o)
 			else
 				local diagnostics = o.diagnostics(o)
-				return string.format(
-					"Editing %s (Line %d) (%d %s)",
-					o.filename,
-					o.cursor_line,
-					diagnostics,
-					(diagnostics < 2) and "Problem" or "Problems"
-				)
+				return string.format("Editing %s (Line %d) (%d %s)", o.filename, o.cursor_line, diagnostics, (diagnostics < 2) and "Problem" or "Problems")
 			end
 		end,
 
 		workspace = function(o)
 			local diagnostics = o.diagnostics(o)
-			return string.format(
-				"Working on %s (%d %s)",
-				o.workspace,
-				diagnostics,
-				(diagnostics < 2) and "Problem" or "Problems"
-			)
+			return string.format("Working on %s (%d %s)", o.workspace, diagnostics, (diagnostics < 2) and "Problem" or "Problems")
 		end,
 	},
 })
