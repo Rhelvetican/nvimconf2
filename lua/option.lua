@@ -1,9 +1,8 @@
 ---@diagnostic disable: assign-type-mismatch
 
-local o     = vim.o
-local g     = vim.g
-local wo    = vim.wo
-local utils = require("lua.util")
+local o  = vim.o
+local g  = vim.g
+local wo = vim.wo
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -18,7 +17,8 @@ vim.cfpath = vim.fn.stdpath("config")
 wo.relativenumber           = true
 g.mapleader                 = ","
 g.markdown_fenced_languages = { "rs=rust", "js=javascript", "ts=typescript" }
-o                           = utils.mergeTable("force", o, {
+
+for setting, option in pairs({
     background     = "dark",
     laststatus     = 3,
     showmode       = false,
@@ -46,7 +46,9 @@ o                           = utils.mergeTable("force", o, {
     tabstop        = 4,
     softtabstop    = 4,
     winborder      = "rounded",
-})
+}) do
+    o[setting] = option
+end
 
 vim.api.nvim_set_hl(0, "IndentLine", { link = "Comment" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
