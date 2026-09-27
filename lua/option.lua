@@ -1,13 +1,13 @@
-local o = vim.o
-local g = vim.g
+local o  = vim.o
+local g  = vim.g
 local wo = vim.wo
 
 vim.diagnostic.config({
-	virtual_text = true,
-	update_in_insert = true,
-	signs = true,
-	underline = true,
-	severity_sort = true,
+    virtual_text = true,
+    update_in_insert = true,
+    signs = true,
+    underline = true,
+    severity_sort = true,
 })
 
 vim.cfpath = vim.fn.stdpath("config")
@@ -15,45 +15,45 @@ vim.cfpath = vim.fn.stdpath("config")
 o.background = "dark"
 
 o.laststatus = 3
-o.showmode = false
+o.showmode   = false
 
 -- o.t_SI = "\\e[5 q"
 -- o.t_EI = "\\e[1 q"
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-o.clipboard = "unnamedplus"
+o.clipboard      = "unnamedplus"
 
-o.shell = "nu"
+o.shell        = "nu"
 o.shellcmdflag = "-c"
-o.shellquote = ""
-o.shellxquote = ""
+o.shellquote   = ""
+o.shellxquote  = ""
 
 -- Indenting
-o.expandtab = true
-o.shiftwidth = 4
+o.expandtab   = true
+o.shiftwidth  = 4
 o.smartindent = true
-o.tabstop = 4
+o.tabstop     = 4
 o.softtabstop = 4
 
 vim.opt.fillchars = { eob = " " }
-o.ignorecase = true
-o.smartcase = true
-o.mouse = "a"
-o.mousemoveevent = true
+o.ignorecase      = true
+o.smartcase       = true
+o.mouse           = "a"
+o.mousemoveevent  = true
 
 o.number = true
 
-o.signcolumn = "no"
-o.splitbelow = true
-o.splitright = true
+o.signcolumn    = "no"
+o.splitbelow    = true
+o.splitright    = true
 o.termguicolors = true
-o.timeoutlen = 400
-o.undofile = true
-o.cursorline = true
+o.timeoutlen    = 400
+o.undofile      = true
+o.cursorline    = true
 
 wo.relativenumber = true
 
-g.mapleader = ","
+g.mapleader            = ","
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
@@ -62,14 +62,10 @@ vim.api.nvim_set_hl(0, "IndentLine", { link = "Comment" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
-g.markdown_fenced_languages = {
-	"rs=rust",
-	"js=javascript",
-	"ts=typescript",
-}
+g.markdown_fenced_languages = { "rs=rust", "js=javascript", "ts=typescript" }
 
 vim.api.nvim_create_autocmd({ "LspAttach", "BufEnter", "TextChanged" }, {
-	callback = function()
-		vim.lsp.inlay_hint.enable()
-	end,
+    callback = function()
+        vim.lsp.inlay_hint.enable()
+    end,
 })

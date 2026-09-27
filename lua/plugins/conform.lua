@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
                 javascript = { "deno_fmt", lsp_format = "fallback" },
                 c          = { "clang-format", lsp_format = "fallback" },
                 cpp        = { "clang-format", lsp_format = "fallback" },
-                json       = { "clang-format" },
+                json       = { "oxfmt" },
             },
 
             format_on_save = {
