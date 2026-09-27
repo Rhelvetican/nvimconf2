@@ -1,45 +1,45 @@
 ---@class LazyGitConfiguration
 ---@field binary string
----@field args? string[]
+---@field args?  string[]
 
+---@class LazyGit
 local M = {
-	---@type LazyGitConfiguration
-	config = {
-		binary = "lazygit",
-	},
+    ---@type LazyGitConfiguration
+    config = {
+        binary = "lazygit",
+    },
 
-	---@type string[]?
-	cmd = nil,
+    ---@type string[]?
+    cmd = nil,
 }
 
 ---@param opts? LazyGitConfiguration
 function M.setup(opts)
-	M.config = vim.tbl_deep_extend("force", M.config, opts or {})
+    M.config = vim.tbl_deep_extend("force", M.config, opts or {})
 end
 
 function M.command()
-	local cmd = M.cmd or { M.config.binary }
+    ---@type string[]
+    local cmd = M.cmd ?? { M.config.binary }
 
-	if M.cmd then
-		return M.cmd
-	end
+    if M.config.args then
+        for _, arg in ipairs(M.config.args) do
+            cmd[#cmd + 1] = arg
+        end
+    end
 
-	if M.config.args then
-		for _, arg in ipairs(M.config.args) do
-			cmd[#cmd + 1] = arg
-		end
-	end
-
-	M.cmd = cmd
-	return cmd
+    M.cmd = cmd
+    return cmd
 end
 
 function M.toggle()
-	Snacks.terminal.toggle(M.command(), { win = {
-		relative = "editor",
-		position = "float",
-		border = "rounded",
-	} })
+    Snacks.terminal.toggle(M.command(), {
+        win = {
+            relative = "editor",
+            position = "float",
+            border   = "rounded",
+        },
+    })
 end
 
 return M

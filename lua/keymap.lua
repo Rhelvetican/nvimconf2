@@ -1,54 +1,27 @@
-local map = vim.keymap.set
-
----@param keybind string
----@param command string | fun()
----@param opts?   vim.keymap.set.Opts
-local function map_nvo(keybind, command, opts)
-    map({ "n", "v", "o" }, keybind, command, opts)
-end
-
-map_nvo("<C-s>", "<cmd>w<CR>")
-map_nvo("<C-c>", "<cmd>%y+<CR>")
-map_nvo("d<leader>", "<cmd>%d+<CR>")
-map_nvo("tt", function()
-    Snacks.terminal.toggle({ "nu" }, {})
-end)
-
-map("n", "<leader>ca", function()
-    require("tiny-code-action").code_action({})
-end, { noremap = true, silent = true }
-)
-
-map_nvo("<leader>rn", function()
-    Snacks.input.input({
-        prompt = "Rename item to",
-        expand = true,
-        icon_hl = "SnacksInputIcon",
-    },
-        function(input)
-            if input then
-                vim.lsp.buf.rename(input)
-            end
-        end)
-end)
-
+local utils   = require("lua.util")
 local lazygit = require("lazygit")
 lazygit.setup()
 
-map_nvo("lg", lazygit.toggle)
+utils.mapGeneral("lg", lazygit.toggle)
+utils.mapGeneral("<leader>fg", Snacks.picker.grep, { desc = "Grep" })
+utils.mapGeneral("<leader>cs", Snacks.picker.colorschemes, { desc = "Choosing colorschemes" })
+utils.mapGeneral("<C-s>", "<cmd>w<CR>")
+utils.mapGeneral("<C-c>", "<cmd>%y+<CR>")
+utils.mapGeneral("d<leader>", "<cmd>%d+<CR>")
+utils.mapGeneral("tt", function() Snacks.terminal.toggle({ "nu" }) end)
+utils.mapGeneral("<leader>rn", function()
+    utils.propmptInput({ expand = true, prompt = "", icon_hl = "SnacksInputIcon" }, function(input) vim.lsp.buf.rename(input) end)
+end)
 
-map_nvo("<leader>fg", Snacks.picker.grep, { desc = "Grep" })
-map_nvo("<leader>cs", Snacks.picker.colorschemes, { desc = "Choosing colorschemes" })
-
-map("n", "<C-k>", vim.lsp.buf.hover)
-map("n", "<C-f>", MiniFiles.open)
-
-map("n", "ff", function()
+vim.keymap.set("n", "<leader>ca", function() require("tiny-code-action").code_action({}) end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover)
+vim.keymap.set("n", "<C-f>", MiniFiles.open)
+vim.keymap.set("n", "ff", function()
     _G.LOAD_FFF()
     require("fff").find_files({ grep = { modes = { "fuzzy", "regex", "plain" } } })
 end, { desc = "FFFind files" }
 )
-map("n", "fg", function()
+vim.keymap.set("n", "fg", function()
     _G.LOAD_FFF()
     require("fff").live_grep({ grep = { modes = { "fuzzy", "regex", "plain" } } })
 end, { desc = "FFFLivegrep" }
