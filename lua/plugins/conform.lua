@@ -3,7 +3,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function(_)
         vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
-        ---@diagnostic disable-next-line
         require("conform").setup({
             formatters = {
                 ["clang-format"] = {
@@ -33,7 +32,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
                 javascript = { "deno_fmt", lsp_format = "fallback" },
                 c          = { "clang-format", lsp_format = "fallback" },
                 cpp        = { "clang-format", lsp_format = "fallback" },
-                json       = { "clang-format" },
+                json       = { "deno_fmt" },
             },
 
             format_on_save = {

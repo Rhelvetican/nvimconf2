@@ -1,112 +1,111 @@
----@type {[string]: fun(opts: CordOpts): string}
+---@type { [string]: fun(opts: CordOpts): string }
 local Languages = {}
 
 ---@class CordLanguage
----@field language string|string[]
----@field message fun(opts: CordOpts): string
+---@field language string | string[]
+---@field message  fun(opts: CordOpts): string
 ---@overload fun(o: CordLanguage): CordLanguage
 local Language = setmetatable({}, {
-	---@param o CordLanguage
-	---@return CordLanguage
-	__call = function(_, o)
-		if type(o.language) == "string" then
-			Languages[o.language] = o.message
-			Languages[o.language:lower()] = o.message
-		else
-			for _, lang in ipairs(o.language) do
-				Languages[lang] = o.message
-			end
-		end
-		return o
-	end,
+    ---@param o CordLanguage
+    ---@return CordLanguage
+    __call = function(_, o)
+        if type(o.language) == "string" then
+            Languages[o.language]         = o.message
+            Languages[o.language:lower()] = o.message
+        else
+            for _, lang in ipairs(o.language) do
+                Languages[lang] = o.message
+            end
+        end
+        return o
+    end,
 })
 
 ---@param s string
 ---@return fun(o: CordOpts): string
 local function createMessage(s)
-	---@param o CordOpts
-	return function(o)
-		local diagnostics = o.diagnostics(o)
-
-		return string.format("%s %s (Line %d) %s", s, o.filename, o.cursor_line, (diagnostics > 0) and string.format("(%d %s)", diagnostics, (diagnostics < 2) and "Problem" or "Problems") or "")
-	end
+    ---@param o CordOpts
+    return function(o)
+        local diagnostics = #vim.diagnostic.get(vim.api.nvim_get_current_buf())
+        return string.format("%s %s (Line %d) %s", s, o.filename, o.cursor_line, (diagnostics > 0) and string.format("(%d %s)", diagnostics, (diagnostics < 2) and "Problem" or "Problems") or "")
+    end
 end
 
 vim.pack.add({ "https://github.com/vyfor/cord.nvim" })
 
 vim.api.nvim_create_autocmd("PackChanged", {
-	callback = function(args)
-		local name, kind = args.data.spec.name, args.data.kind
-		if name == "cord" and kind == "update" then
-			vim.cmd.packadd(name)
-		end
+    callback = function(args)
+        local name, kind = args.data.spec.name, args.data.kind
+        if name == "cord" and kind == "update" then
+            vim.cmd.packadd(name)
+        end
 
-		vim.cmd("Cord update")
-	end,
+        vim.cmd("Cord update")
+    end,
 })
 
 Language({
-	language = "Rust",
-	message = createMessage("Oxidizing at "),
+    language = "Rust",
+    message = createMessage("Oxidizing at "),
 })
 
 Language({
-	language = "Zig",
-	message = createMessage("Being a Zigger at "),
+    language = "Zig",
+    message = createMessage("Being a Zigger at "),
 })
 
 Language({
-	language = "Lua",
-	message = createMessage("Writing Lua code at "),
+    language = "Lua",
+    message = createMessage("Writing Lua code at "),
 })
 
 Language({
-	language = { "C", "C++", "Cpp", "H", "H++", "Hpp" },
-	message = createMessage("Being oldschool at "),
+    language = { "C", "C++", "Cpp", "H", "H++", "Hpp" },
+    message = createMessage("Being oldschool at "),
 })
 
 Language({
-	language = { "JavaScript", "TypeScript", "JS", "TS" },
-	message = createMessage("This is Hell, and it's at "),
+    language = { "JavaScript", "TypeScript", "JS", "TS" },
+    message = createMessage("This is Hell, and it's at "),
 })
 
 Language({
-	language = { "Python" },
-	message = createMessage("Writing nonsensical script at "),
+    language = { "Python" },
+    message = createMessage("Writing nonsensical script at "),
 })
 
 Language({
-	language = { "Typst" },
-	message = createMessage("Writing a paper at "),
+    language = { "Typst" },
+    message = createMessage("Writing a paper at "),
 })
 
 require("cord").setup({
-	extensions = { "diagnostics" },
+    extensions = { "diagnostics" },
 
-	editor = {
-		client = "neovim",
-		tooltip = "The Holy Text Editor",
-	},
+    editor = {
+        client = "neovim",
+        tooltip = "The Holy Text Editor",
+    },
 
-	display = {
-		theme = "catppuccin",
-		flavor = "accent",
-	},
+    display = {
+        theme = "catppuccin",
+        flavor = "accent",
+    },
 
-	text = {
-		editing = function(o)
-			vim.notify(o.filetype, 1, {})
-			if Languages[o.filetype] ~= nil then
-				return Languages[o.filetype](o)
-			else
-				local diagnostics = o.diagnostics(o)
-				return string.format("Editing %s (Line %d) (%d %s)", o.filename, o.cursor_line, diagnostics, (diagnostics < 2) and "Problem" or "Problems")
-			end
-		end,
+    text = {
+        editing = function(o)
+            vim.notify(o.filetype, 1, {})
+            if Languages[o.filetype] ~= nil then
+                return Languages[o.filetype](o)
+            else
+                local diagnostics = #vim.diagnostic.get(vim.api.nvim_get_current_buf())
+                return string.format("Editing %s (Line %d) (%d %s)", o.filename, o.cursor_line, diagnostics, (diagnostics < 2) and "Problem" or "Problems")
+            end
+        end,
 
-		workspace = function(o)
-			local diagnostics = o.diagnostics(o)
-			return string.format("Working on %s (%d %s)", o.workspace, diagnostics, (diagnostics < 2) and "Problem" or "Problems")
-		end,
-	},
+        workspace = function(o)
+            local diagnostics = #vim.diagnostic.get(vim.api.nvim_get_current_buf())
+            return string.format("Working on %s (%d %s)", o.workspace, diagnostics, (diagnostics < 2) and "Problem" or "Problems")
+        end,
+    },
 })
