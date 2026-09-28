@@ -1,4 +1,3 @@
----@class Utils
 local M = {}
 
 ---@generic K, V

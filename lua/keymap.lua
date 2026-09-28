@@ -1,4 +1,4 @@
-local util    = require("util")
+local util    = require("utils")
 local lazygit = require("lazygit")
 lazygit.setup()
 
@@ -17,7 +17,6 @@ vim.keymap.set("n", "<leader>ca", function() require("tiny-code-action").code_ac
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover)
 vim.keymap.set("n", "<C-f>", MiniFiles.open)
 vim.keymap.set("n", "ff", function()
-    _G.LOAD_FFF()
     require("fff").find_files({ grep = { modes = { "fuzzy", "regex", "plain" } } })
 end, { desc = "FFFind files" }
 )
